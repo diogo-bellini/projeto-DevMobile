@@ -1,17 +1,46 @@
+# IntelliJ / Android Studio
 *.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+*.iws
+out/
+.idea/
+
+# Gradle (cobre mobile/.gradle, mobile/build, etc.)
+**/.gradle/
+**/build/
+**/captures/
+
+# Android local config
 local.properties
-.idea
+
+# NDK / CMake
+.externalNativeBuild/
+.cxx/
+*.so
+obj/
+
+# Kotlin
+*.class
+*.kotlin_module
+
+# Android binaries
+*.apk
+*.aab
+*.ap_
+*.dex
+mobile/app/release/
+
+# Keystore (nunca commitar)
+*.jks
+*.keystore
+keystore.properties
+release-keystore.properties
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# VSCode
 .vscode
+
+# Backend
+backend/node_modules
