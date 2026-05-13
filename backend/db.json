@@ -1,0 +1,1762 @@
+{
+  "reservations": [
+    {
+      "storeId": 1,
+      "date": "2025-12-03",
+      "time": "21:23",
+      "people": 1,
+      "createdAt": "2025-12-11T23:24:02.827Z",
+      "id": 1
+    }
+  ],
+  "stores": [
+    {
+      "id": 1,
+      "name": "Sushi Fan - Fanáticos por sushi",
+      "namepiece": "Sushi Fan",
+      "address": "Av. Dr. Carlos Botelho, 1551 - Centro, São Carlos",
+      "logo": "http://localhost:3000/logo1.png",
+      "banner": "/assets/banner/banner1.webp",
+      "phone": "(11) 91234-5678",
+      "rating": 4.7,
+      "reviews": 823,
+      "avgPrice": 34.7,
+      "tableMapImage": "/assets/images/mapa.webp",
+      "category": "Japonesa",
+      "time": "40 - 50 min",
+      "schedule": [
+        { "day": "Segunda-feira", "hours": "11h - 15h, 19h - 23h" },
+        { "day": "Terça-feira", "hours": "11h - 15h, 19h - 23h" },
+        { "day": "Quarta-feira", "hours": "11h - 15h, 19h - 23h" },
+        { "day": "Quinta-feira", "hours": "11h - 15h, 19h - 23h" },
+        { "day": "Sexta-feira", "hours": "11h - 15h, 19h - 23h" },
+        { "day": "Sábado", "hours": "11h - 23h" },
+        { "day": "Domingo", "hours": "11h - 22h" }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Pizzaria Bella Italia",
+      "namepiece": "Bella Italia",
+      "address": "Rua das Flores, 200 - Centro, São Carlos",
+      "logo": "http://localhost:3000/logo2.jpeg",
+      "banner": "/assets/banner/banner2.webp",
+      "phone": "(11) 98765-4321",
+      "rating": 4.5,
+      "reviews": 512,
+      "avgPrice": 45,
+      "tableMapImage": "/assets/images/mapa.webp",
+      "category": "Pizzaria",
+      "time": "20 - 30 min",
+      "schedule": [
+        { "day": "Segunda-feira", "hours": "Fechado" },
+        { "day": "Terça-feira", "hours": "18h - 23h30" },
+        { "day": "Quarta-feira", "hours": "18h - 23h30" },
+        { "day": "Quinta-feira", "hours": "18h - 23h30" },
+        { "day": "Sexta-feira", "hours": "18h - 00h00" },
+        { "day": "Sábado", "hours": "18h - 00h30" },
+        { "day": "Domingo", "hours": "18h - 23h00" }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Jin Jin Culinária Asiática",
+      "namepiece": "Jin Jin",
+      "address": "Av. Francisco Pereira Lopes, 1701 - Parque Santa Monica, São Carlos",
+      "logo": "http://localhost:3000/logo3.jpeg",
+      "banner": "/assets/banner/banner3.webp",
+      "phone": "(16) 2106-9621",
+      "rating": 4.8,
+      "reviews": 612,
+      "avgPrice": 75,
+      "tableMapImage": "/assets/images/mapa.webp",
+      "category": "Japonesa",
+      "time": "50 - 60 min",
+      "schedule": [
+        { "day": "Segunda-feira", "hours": "11h - 22h" },
+        { "day": "Terça-feira", "hours": "11h - 22h" },
+        { "day": "Quarta-feira", "hours": "11h - 22h" },
+        { "day": "Quinta-feira", "hours": "11h - 22h" },
+        { "day": "Sexta-feira", "hours": "11h - 22h" },
+        { "day": "Sábado", "hours": "11h - 22h" },
+        { "day": "Domingo", "hours": "12h - 20h" }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Sushi Fan - Fanáticos por sushi",
+      "namepiece": "Sushi Fan",
+      "address": "Av. Dr. Carlos Botelho, 1551 - Centro, São Carlos",
+      "logo": "http://localhost:3000/logo1.png",
+      "banner": "/assets/banner/banner1.webp",
+      "phone": "(11) 91234-5678",
+      "rating": 4.7,
+      "reviews": 823,
+      "avgPrice": 34.7,
+      "tableMapImage": "/assets/images/mapa.webp",
+      "category": "Japonesa",
+      "time": "40 - 50 min",
+      "schedule": [
+        { "day": "Segunda-feira", "hours": "11h - 15h, 19h - 23h" },
+        { "day": "Terça-feira", "hours": "11h - 15h, 19h - 23h" },
+        { "day": "Quarta-feira", "hours": "11h - 15h, 19h - 23h" },
+        { "day": "Quinta-feira", "hours": "11h - 15h, 19h - 23h" },
+        { "day": "Sexta-feira", "hours": "11h - 15h, 19h - 23h" },
+        { "day": "Sábado", "hours": "11h - 23h" },
+        { "day": "Domingo", "hours": "11h - 22h" }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Pizzaria Bella Italia",
+      "namepiece": "Bella Italia",
+      "address": "Rua das Flores, 200 - Centro, São Carlos",
+      "logo": "http://localhost:3000/logo2.jpeg",
+      "banner": "/assets/banner/banner2.webp",
+      "phone": "(11) 98765-4321",
+      "rating": 4.5,
+      "reviews": 512,
+      "avgPrice": 45,
+      "tableMapImage": "/assets/images/mapa.webp",
+      "category": "Pizzaria",
+      "time": "20 - 30 min",
+      "schedule": [
+        { "day": "Segunda-feira", "hours": "Fechado" },
+        { "day": "Terça-feira", "hours": "18h - 23h30" },
+        { "day": "Quarta-feira", "hours": "18h - 23h30" },
+        { "day": "Quinta-feira", "hours": "18h - 23h30" },
+        { "day": "Sexta-feira", "hours": "18h - 00h00" },
+        { "day": "Sábado", "hours": "18h - 00h30" },
+        { "day": "Domingo", "hours": "18h - 23h00" }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Jin Jin Culinária Asiática",
+      "namepiece": "Jin Jin",
+      "address": "Av. Francisco Pereira Lopes, 1701 - Parque Santa Monica, São Carlos",
+      "logo": "http://localhost:3000/logo3.jpeg",
+      "banner": "/assets/banner/banner3.webp",
+      "phone": "(16) 2106-9621",
+      "rating": 4.8,
+      "reviews": 612,
+      "avgPrice": 75,
+      "tableMapImage": "/assets/images/mapa.webp",
+      "category": "Japonesa",
+      "time": "50 - 60 min",
+      "schedule": [
+        { "day": "Segunda-feira", "hours": "11h - 22h" },
+        { "day": "Terça-feira", "hours": "11h - 22h" },
+        { "day": "Quarta-feira", "hours": "11h - 22h" },
+        { "day": "Quinta-feira", "hours": "11h - 22h" },
+        { "day": "Sexta-feira", "hours": "11h - 22h" },
+        { "day": "Sábado", "hours": "11h - 22h" },
+        { "day": "Domingo", "hours": "12h - 20h" }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Sushi Fan - Fanáticos por sushi",
+      "namepiece": "Sushi Fan",
+      "address": "Av. Dr. Carlos Botelho, 1551 - Centro, São Carlos",
+      "logo": "http://localhost:3000/logo1.png",
+      "banner": "/assets/banner/banner1.webp",
+      "phone": "(11) 91234-5678",
+      "rating": 4.7,
+      "reviews": 823,
+      "avgPrice": 34.7,
+      "tableMapImage": "/assets/images/mapa.webp",
+      "category": "Japonesa",
+      "time": "40 - 50 min",
+      "schedule": [
+        { "day": "Segunda-feira", "hours": "11h - 15h, 19h - 23h" },
+        { "day": "Terça-feira", "hours": "11h - 15h, 19h - 23h" },
+        { "day": "Quarta-feira", "hours": "11h - 15h, 19h - 23h" },
+        { "day": "Quinta-feira", "hours": "11h - 15h, 19h - 23h" },
+        { "day": "Sexta-feira", "hours": "11h - 15h, 19h - 23h" },
+        { "day": "Sábado", "hours": "11h - 23h" },
+        { "day": "Domingo", "hours": "11h - 22h" }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Pizzaria Bella Italia",
+      "namepiece": "Bella Italia",
+      "address": "Rua das Flores, 200 - Centro, São Carlos",
+      "logo": "http://localhost:3000/logo2.jpeg",
+      "banner": "/assets/banner/banner2.webp",
+      "phone": "(11) 98765-4321",
+      "rating": 4.5,
+      "reviews": 512,
+      "avgPrice": 45,
+      "tableMapImage": "/assets/images/mapa.webp",
+      "category": "Pizzaria",
+      "time": "20 - 30 min",
+      "schedule": [
+        { "day": "Segunda-feira", "hours": "Fechado" },
+        { "day": "Terça-feira", "hours": "18h - 23h30" },
+        { "day": "Quarta-feira", "hours": "18h - 23h30" },
+        { "day": "Quinta-feira", "hours": "18h - 23h30" },
+        { "day": "Sexta-feira", "hours": "18h - 00h00" },
+        { "day": "Sábado", "hours": "18h - 00h30" },
+        { "day": "Domingo", "hours": "18h - 23h00" }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Jin Jin Culinária Asiática",
+      "namepiece": "Jin Jin",
+      "address": "Av. Francisco Pereira Lopes, 1701 - Parque Santa Monica, São Carlos",
+      "logo": "http://localhost:3000/logo3.jpeg",
+      "banner": "/assets/banner/banner3.webp",
+      "phone": "(16) 2106-9621",
+      "rating": 4.8,
+      "reviews": 612,
+      "avgPrice": 75,
+      "tableMapImage": "/assets/images/mapa.webp",
+      "category": "Japonesa",
+      "time": "50 - 60 min",
+      "schedule": [
+        { "day": "Segunda-feira", "hours": "11h - 22h" },
+        { "day": "Terça-feira", "hours": "11h - 22h" },
+        { "day": "Quarta-feira", "hours": "11h - 22h" },
+        { "day": "Quinta-feira", "hours": "11h - 22h" },
+        { "day": "Sexta-feira", "hours": "11h - 22h" },
+        { "day": "Sábado", "hours": "11h - 22h" },
+        { "day": "Domingo", "hours": "12h - 20h" }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Sushi Fan - Fanáticos por sushi",
+      "namepiece": "Sushi Fan",
+      "address": "Av. Dr. Carlos Botelho, 1551 - Centro, São Carlos",
+      "logo": "http://localhost:3000/logo1.png",
+      "banner": "/assets/banner/banner1.webp",
+      "phone": "(11) 91234-5678",
+      "rating": 4.7,
+      "reviews": 823,
+      "avgPrice": 34.7,
+      "tableMapImage": "/assets/images/mapa.webp",
+      "category": "Japonesa",
+      "time": "40 - 50 min",
+      "schedule": [
+        { "day": "Segunda-feira", "hours": "11h - 15h, 19h - 23h" },
+        { "day": "Terça-feira", "hours": "11h - 15h, 19h - 23h" },
+        { "day": "Quarta-feira", "hours": "11h - 15h, 19h - 23h" },
+        { "day": "Quinta-feira", "hours": "11h - 15h, 19h - 23h" },
+        { "day": "Sexta-feira", "hours": "11h - 15h, 19h - 23h" },
+        { "day": "Sábado", "hours": "11h - 23h" },
+        { "day": "Domingo", "hours": "11h - 22h" }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Pizzaria Bella Italia",
+      "namepiece": "Bella Italia",
+      "address": "Rua das Flores, 200 - Centro, São Carlos",
+      "logo": "http://localhost:3000/logo2.jpeg",
+      "banner": "/assets/banner/banner2.webp",
+      "phone": "(11) 98765-4321",
+      "rating": 4.5,
+      "reviews": 512,
+      "avgPrice": 45,
+      "tableMapImage": "/assets/images/mapa.webp",
+      "category": "Pizzaria",
+      "time": "20 - 30 min",
+      "schedule": [
+        { "day": "Segunda-feira", "hours": "Fechado" },
+        { "day": "Terça-feira", "hours": "18h - 23h30" },
+        { "day": "Quarta-feira", "hours": "18h - 23h30" },
+        { "day": "Quinta-feira", "hours": "18h - 23h30" },
+        { "day": "Sexta-feira", "hours": "18h - 00h00" },
+        { "day": "Sábado", "hours": "18h - 00h30" },
+        { "day": "Domingo", "hours": "18h - 23h00" }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Jin Jin Culinária Asiática",
+      "namepiece": "Jin Jin",
+      "address": "Av. Francisco Pereira Lopes, 1701 - Parque Santa Monica, São Carlos",
+      "logo": "http://localhost:3000/logo3.jpeg",
+      "banner": "/assets/banner/banner3.webp",
+      "phone": "(16) 2106-9621",
+      "rating": 4.8,
+      "reviews": 612,
+      "avgPrice": 75,
+      "tableMapImage": "/assets/images/mapa.webp",
+      "category": "Japonesa",
+      "time": "50 - 60 min",
+      "schedule": [
+        { "day": "Segunda-feira", "hours": "11h - 22h" },
+        { "day": "Terça-feira", "hours": "11h - 22h" },
+        { "day": "Quarta-feira", "hours": "11h - 22h" },
+        { "day": "Quinta-feira", "hours": "11h - 22h" },
+        { "day": "Sexta-feira", "hours": "11h - 22h" },
+        { "day": "Sábado", "hours": "11h - 22h" },
+        { "day": "Domingo", "hours": "12h - 20h" }
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Sushi Fan - Fanáticos por sushi",
+      "namepiece": "Sushi Fan",
+      "address": "Av. Dr. Carlos Botelho, 1551 - Centro, São Carlos",
+      "logo": "http://localhost:3000/logo1.png",
+      "banner": "/assets/banner/banner1.webp",
+      "phone": "(11) 91234-5678",
+      "rating": 4.7,
+      "reviews": 823,
+      "avgPrice": 34.7,
+      "tableMapImage": "/assets/images/mapa.webp",
+      "category": "Japonesa",
+      "time": "40 - 50 min",
+      "schedule": [
+        { "day": "Segunda-feira", "hours": "11h - 15h, 19h - 23h" },
+        { "day": "Terça-feira", "hours": "11h - 15h, 19h - 23h" },
+        { "day": "Quarta-feira", "hours": "11h - 15h, 19h - 23h" },
+        { "day": "Quinta-feira", "hours": "11h - 15h, 19h - 23h" },
+        { "day": "Sexta-feira", "hours": "11h - 15h, 19h - 23h" },
+        { "day": "Sábado", "hours": "11h - 23h" },
+        { "day": "Domingo", "hours": "11h - 22h" }
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Pizzaria Bella Italia",
+      "namepiece": "Bella Italia",
+      "address": "Rua das Flores, 200 - Centro, São Carlos",
+      "logo": "http://localhost:3000/logo2.jpeg",
+      "banner": "/assets/banner/banner2.webp",
+      "phone": "(11) 98765-4321",
+      "rating": 4.5,
+      "reviews": 512,
+      "avgPrice": 45,
+      "tableMapImage": "/assets/images/mapa.webp",
+      "category": "Pizzaria",
+      "time": "20 - 30 min",
+      "schedule": [
+        { "day": "Segunda-feira", "hours": "Fechado" },
+        { "day": "Terça-feira", "hours": "18h - 23h30" },
+        { "day": "Quarta-feira", "hours": "18h - 23h30" },
+        { "day": "Quinta-feira", "hours": "18h - 23h30" },
+        { "day": "Sexta-feira", "hours": "18h - 00h00" },
+        { "day": "Sábado", "hours": "18h - 00h30" },
+        { "day": "Domingo", "hours": "18h - 23h00" }
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Jin Jin Culinária Asiática",
+      "namepiece": "Jin Jin",
+      "address": "Av. Francisco Pereira Lopes, 1701 - Parque Santa Monica, São Carlos",
+      "logo": "http://localhost:3000/logo3.jpeg",
+      "banner": "/assets/banner/banner3.webp",
+      "phone": "(16) 2106-9621",
+      "rating": 4.8,
+      "reviews": 612,
+      "avgPrice": 75,
+      "tableMapImage": "/assets/images/mapa.webp",
+      "category": "Japonesa",
+      "time": "50 - 60 min",
+      "schedule": [
+        { "day": "Segunda-feira", "hours": "11h - 22h" },
+        { "day": "Terça-feira", "hours": "11h - 22h" },
+        { "day": "Quarta-feira", "hours": "11h - 22h" },
+        { "day": "Quinta-feira", "hours": "11h - 22h" },
+        { "day": "Sexta-feira", "hours": "11h - 22h" },
+        { "day": "Sábado", "hours": "11h - 22h" },
+        { "day": "Domingo", "hours": "12h - 20h" }
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Sushi Fan - Fanáticos por sushi",
+      "namepiece": "Sushi Fan",
+      "address": "Av. Dr. Carlos Botelho, 1551 - Centro, São Carlos",
+      "logo": "http://localhost:3000/logo1.png",
+      "banner": "/assets/banner/banner1.webp",
+      "phone": "(11) 91234-5678",
+      "rating": 4.7,
+      "reviews": 823,
+      "avgPrice": 34.7,
+      "tableMapImage": "/assets/images/mapa.webp",
+      "category": "Japonesa",
+      "time": "40 - 50 min",
+      "schedule": [
+        { "day": "Segunda-feira", "hours": "11h - 15h, 19h - 23h" },
+        { "day": "Terça-feira", "hours": "11h - 15h, 19h - 23h" },
+        { "day": "Quarta-feira", "hours": "11h - 15h, 19h - 23h" },
+        { "day": "Quinta-feira", "hours": "11h - 15h, 19h - 23h" },
+        { "day": "Sexta-feira", "hours": "11h - 15h, 19h - 23h" },
+        { "day": "Sábado", "hours": "11h - 23h" },
+        { "day": "Domingo", "hours": "11h - 22h" }
+      ]
+    },
+    {
+      "id": 17,
+      "name": "Pizzaria Bella Italia",
+      "namepiece": "Bella Italia",
+      "address": "Rua das Flores, 200 - Centro, São Carlos",
+      "logo": "http://localhost:3000/logo2.jpeg",
+      "banner": "/assets/banner/banner2.webp",
+      "phone": "(11) 98765-4321",
+      "rating": 4.5,
+      "reviews": 512,
+      "avgPrice": 45,
+      "tableMapImage": "/assets/images/mapa.webp",
+      "category": "Pizzaria",
+      "time": "20 - 30 min",
+      "schedule": [
+        { "day": "Segunda-feira", "hours": "Fechado" },
+        { "day": "Terça-feira", "hours": "18h - 23h30" },
+        { "day": "Quarta-feira", "hours": "18h - 23h30" },
+        { "day": "Quinta-feira", "hours": "18h - 23h30" },
+        { "day": "Sexta-feira", "hours": "18h - 00h00" },
+        { "day": "Sábado", "hours": "18h - 00h30" },
+        { "day": "Domingo", "hours": "18h - 23h00" }
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Jin Jin Culinária Asiática",
+      "namepiece": "Jin Jin",
+      "address": "Av. Francisco Pereira Lopes, 1701 - Parque Santa Monica, São Carlos",
+      "logo": "http://localhost:3000/logo3.jpeg",
+      "banner": "/assets/banner/banner3.webp",
+      "phone": "(16) 2106-9621",
+      "rating": 4.8,
+      "reviews": 612,
+      "avgPrice": 75,
+      "tableMapImage": "/assets/images/mapa.webp",
+      "category": "Japonesa",
+      "time": "50 - 60 min",
+      "schedule": [
+        { "day": "Segunda-feira", "hours": "11h - 22h" },
+        { "day": "Terça-feira", "hours": "11h - 22h" },
+        { "day": "Quarta-feira", "hours": "11h - 22h" },
+        { "day": "Quinta-feira", "hours": "11h - 22h" },
+        { "day": "Sexta-feira", "hours": "11h - 22h" },
+        { "day": "Sábado", "hours": "11h - 22h" },
+        { "day": "Domingo", "hours": "12h - 20h" }
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "id": 1,
+      "storeId": 1,
+      "number": 1,
+      "capacity": 4,
+      "description": "Mesa próxima à entrada, ideal para quem prefere um ambiente mais movimentado.",
+      "reservationFrequency": "De 4 a 7 vezes por dia."
+    },
+    {
+      "id": 2,
+      "storeId": 1,
+      "number": 2,
+      "capacity": 6,
+      "description": "Mesa espaçosa no centro do salão, perfeita para grupos grandes.",
+      "reservationFrequency": "De 3 a 5 vezes por dia."
+    },
+    {
+      "id": 3,
+      "storeId": 1,
+      "number": 3,
+      "capacity": 4,
+      "description": "Mesa com vista para a rua, ambiente agradável para conversas.",
+      "reservationFrequency": "De 2 a 4 vezes por dia."
+    },
+    {
+      "id": 4,
+      "storeId": 1,
+      "number": 4,
+      "capacity": 4,
+      "description": "Mesa tranquila no canto, ideal para momentos mais reservados.",
+      "reservationFrequency": "De 1 a 3 vezes por dia."
+    },
+    {
+      "id": 5,
+      "storeId": 1,
+      "number": 5,
+      "capacity": 4,
+      "description": "Mesa com ótima localização, afastada dos banheiros e da cozinha. Perfeita para refeições em família ou com amigos!!",
+      "reservationFrequency": "De 2 a 5 vezes por dia."
+    },
+    {
+      "id": 6,
+      "storeId": 1,
+      "number": 6,
+      "capacity": 4,
+      "description": "Mesa aconchegante no centro, perfeita para jantares românticos.",
+      "reservationFrequency": "De 3 a 6 vezes por dia."
+    },
+    {
+      "id": 7,
+      "storeId": 1,
+      "number": 7,
+      "capacity": 4,
+      "description": "Mesa espaçosa com boa visibilidade do ambiente, excelente para grupos.",
+      "reservationFrequency": "De 2 a 5 vezes por dia."
+    },
+    {
+      "id": 8,
+      "storeId": 1,
+      "number": 8,
+      "capacity": 2,
+      "description": "Mesa intimista para casais, ambiente acolhedor e privativo.",
+      "reservationFrequency": "De 4 a 8 vezes por dia."
+    },
+    {
+      "id": 9,
+      "storeId": 1,
+      "number": 9,
+      "capacity": 2,
+      "description": "Mesa pequena e confortável, ideal para refeições rápidas.",
+      "reservationFrequency": "De 3 a 6 vezes por dia."
+    },
+    {
+      "id": 10,
+      "storeId": 1,
+      "number": 10,
+      "capacity": 2,
+      "description": "Mesa com vista para o balcão do sushi, para quem aprecia o preparo.",
+      "reservationFrequency": "De 5 a 9 vezes por dia."
+    },
+    {
+      "id": 11,
+      "storeId": 1,
+      "number": 11,
+      "capacity": 2,
+      "description": "Mesa discreta e tranquila, perfeita para conversas íntimas.",
+      "reservationFrequency": "De 2 a 4 vezes por dia."
+    },
+    {
+      "id": 12,
+      "storeId": 1,
+      "number": 12,
+      "capacity": 4,
+      "description": "Mesa no meio do salão, com boa circulação e ambiente animado.",
+      "reservationFrequency": "De 3 a 5 vezes por dia."
+    },
+    {
+      "id": 13,
+      "storeId": 1,
+      "number": 13,
+      "capacity": 4,
+      "description": "Mesa confortável com espaço amplo, ideal para famílias.",
+      "reservationFrequency": "De 2 a 4 vezes por dia."
+    },
+    {
+      "id": 14,
+      "storeId": 1,
+      "number": 14,
+      "capacity": 4,
+      "description": "Mesa bem localizada, com fácil acesso e ambiente acolhedor.",
+      "reservationFrequency": "De 3 a 6 vezes por dia."
+    },
+    {
+      "id": 15,
+      "storeId": 1,
+      "number": 15,
+      "capacity": 4,
+      "description": "Mesa espaçosa próxima às janelas, com iluminação natural.",
+      "reservationFrequency": "De 2 a 5 vezes por dia."
+    },
+    {
+      "id": 16,
+      "storeId": 1,
+      "number": 16,
+      "capacity": 4,
+      "description": "Mesa central com ambiente descontraído e movimentado.",
+      "reservationFrequency": "De 4 a 7 vezes por dia."
+    },
+    {
+      "id": 17,
+      "storeId": 1,
+      "number": 20,
+      "capacity": 4,
+      "description": "Mesa afastada do movimento, ideal para quem busca tranquilidade.",
+      "reservationFrequency": "De 1 a 3 vezes por dia."
+    },
+    {
+      "id": 18,
+      "storeId": 1,
+      "number": 21,
+      "capacity": 4,
+      "description": "Mesa com vista para a decoração temática, ambiente único.",
+      "reservationFrequency": "De 2 a 4 vezes por dia."
+    },
+    {
+      "id": 19,
+      "storeId": 1,
+      "number": 22,
+      "capacity": 4,
+      "description": "Mesa popular no centro, perfeita para grupos animados.",
+      "reservationFrequency": "De 4 a 6 vezes por dia."
+    },
+    {
+      "id": 20,
+      "storeId": 1,
+      "number": 23,
+      "capacity": 4,
+      "description": "Mesa aconchegante com ótima localização central.",
+      "reservationFrequency": "De 3 a 5 vezes por dia."
+    },
+    {
+      "id": 21,
+      "storeId": 1,
+      "number": 24,
+      "capacity": 4,
+      "description": "Mesa próxima ao bar, ideal para apreciadores de drinks.",
+      "reservationFrequency": "De 2 a 5 vezes por dia."
+    },
+    {
+      "id": 22,
+      "storeId": 1,
+      "number": 25,
+      "capacity": 4,
+      "description": "Mesa espaçosa e confortável, ótima para refeições em grupo.",
+      "reservationFrequency": "De 3 a 6 vezes por dia."
+    },
+    {
+      "id": 23,
+      "storeId": 1,
+      "number": 26,
+      "capacity": 4,
+      "description": "Mesa bem posicionada com ambiente acolhedor e iluminado.",
+      "reservationFrequency": "De 2 a 4 vezes por dia."
+    }
+  ],
+  "banners": [
+    {
+      "id": 1,
+      "url": "http://localhost:3000/banner1.png"
+    },
+    {
+      "id": 2,
+      "url": "http://localhost:3000/banner2.png"
+    },
+    {
+      "id": 3,
+      "url": "http://localhost:3000/banner1.png"
+    },
+    {
+      "id": 4,
+      "url": "http://localhost:3000/banner2.png"
+    },
+    {
+      "id": 5,
+      "url": "http://localhost:3000/banner1.png"
+    },
+    {
+      "id": 6,
+      "url": "http://localhost:3000/banner2.png"
+    }
+  ],
+  "users": [
+    {
+      "nomeCompleto": "Jose Maia de Oliveira",
+      "cpf": "02317009623",
+      "dataNascimento": "2003-12-27",
+      "email": "josemaia.comp@gmail.com",
+      "senha": "Senha123",
+      "id": 1
+    }
+  ],
+  "menuItems": [
+    {
+      "id": 1,
+      "storeId": 1,
+      "category": "Pratos Quentes",
+      "name": "Yakissoba Tradicional",
+      "description": "Macarrão oriental com legumes frescos e carne bovina ou frango"
+    },
+    {
+      "id": 2,
+      "storeId": 1,
+      "category": "Pratos Quentes",
+      "name": "Tempura de Camarão",
+      "description": "Camarões empanados em massa crocante, acompanhados de molho especial"
+    },
+    {
+      "id": 3,
+      "storeId": 1,
+      "category": "Pratos Quentes",
+      "name": "Guioza",
+      "description": "Pastéizinhos recheados com carne suína e vegetais, levemente grelhados"
+    },
+    {
+      "id": 4,
+      "storeId": 1,
+      "category": "Pratos Quentes",
+      "name": "Missoshiru",
+      "description": "Sopa de missô com tofu, cebolinha e alga wakame"
+    },
+    {
+      "id": 5,
+      "storeId": 1,
+      "category": "Pratos Quentes",
+      "name": "Katsu Don",
+      "description": "Filé de porco empanado servido sobre arroz com molho especial e ovos"
+    },
+    {
+      "id": 6,
+      "storeId": 1,
+      "category": "Pratos Quentes",
+      "name": "Gohan",
+      "description": "Arroz japonês tradicional"
+    },
+    {
+      "id": 7,
+      "storeId": 1,
+      "category": "Pratos Quentes",
+      "name": "Shimeji na Manteiga",
+      "description": "Cogumelos shimeji refogados na manteiga com molho shoyu"
+    },
+    {
+      "id": 8,
+      "storeId": 1,
+      "category": "Sushis",
+      "name": "Salmão Nigiri",
+      "description": "Fatias de salmão fresco sobre bolinhos de arroz temperado"
+    },
+    {
+      "id": 9,
+      "storeId": 1,
+      "category": "Sushis",
+      "name": "Atum Nigiri",
+      "description": "Atum fresco sobre arroz japonês"
+    },
+    {
+      "id": 10,
+      "storeId": 1,
+      "category": "Sushis",
+      "name": "Hossomaki de Pepino",
+      "description": "Rolinho fino com pepino crocante"
+    },
+    {
+      "id": 11,
+      "storeId": 1,
+      "category": "Sushis",
+      "name": "Uramaki Califórnia",
+      "description": "Arroz por fora, recheado com kani, manga e pepino"
+    },
+    {
+      "id": 12,
+      "storeId": 1,
+      "category": "Sushis",
+      "name": "Hot Roll",
+      "description": "Sushi empanado recheado com salmão e cream cheese"
+    },
+    {
+      "id": 13,
+      "storeId": 1,
+      "category": "Temakis",
+      "name": "Temaki de Salmão",
+      "description": "Cone de alga recheado com arroz, salmão fresco e cebolinha"
+    },
+    {
+      "id": 14,
+      "storeId": 1,
+      "category": "Temakis",
+      "name": "Temaki de Atum",
+      "description": "Atum fresco sobre arroz japonês"
+    },
+    {
+      "id": 15,
+      "storeId": 1,
+      "category": "Temakis",
+      "name": "Temaki Califórnia",
+      "description": "Rolinho fino com pepino crocante"
+    },
+    {
+      "id": 16,
+      "storeId": 1,
+      "category": "Temakis",
+      "name": "Temaki Skin",
+      "description": "Arroz por fora, recheado com kani, manga e pepino"
+    },
+    {
+      "id": 17,
+      "storeId": 1,
+      "category": "Temakis",
+      "name": "Temaki de Camarão Empanado",
+      "description": "Sushi empanado recheado com salmão e cream cheese"
+    },
+    {
+      "id": 18,
+      "storeId": 2,
+      "category": "Pizzas Tradicionais",
+      "name": "Pizza Calabresa",
+      "description": "Molho de tomate especial, mussarela, calabresa fatiada, cebola e azeitonas pretas"
+    },
+    {
+      "id": 19,
+      "storeId": 2,
+      "category": "Pizzas Tradicionais",
+      "name": "Pizza Margherita",
+      "description": "Molho de tomate artesanal, mussarela de búfala, rodelas de tomate e manjericão fresco"
+    },
+    {
+      "id": 20,
+      "storeId": 2,
+      "category": "Pizzas Tradicionais",
+      "name": "Pizza Portuguesa",
+      "description": "Mussarela, presunto, ovos cozidos, ervilha, cebola e azeitonas"
+    },
+    {
+      "id": 21,
+      "storeId": 2,
+      "category": "Pizzas Especiais",
+      "name": "Pizza 4 Queijos",
+      "description": "Mussarela, provolone, gorgonzola e catupiry legítimo"
+    },
+    {
+      "id": 22,
+      "storeId": 2,
+      "category": "Pizzas Especiais",
+      "name": "Pizza de Pepperoni",
+      "description": "Mussarela coberta com fatias de pepperoni crocante"
+    },
+    {
+      "id": 23,
+      "storeId": 3,
+      "category": "Pratos Executivos",
+      "name": "Frango Xadrez",
+      "description": "Cubos de frango com pimentões, cebola e amendoim ao molho shoyu"
+    },
+    {
+      "id": 24,
+      "storeId": 3,
+      "category": "Pratos Executivos",
+      "name": "Carne com Brócolis",
+      "description": "Tiras de carne bovina salteadas com brócolis frescos e molho de ostra"
+    },
+    {
+      "id": 25,
+      "storeId": 3,
+      "category": "Especiais Jin Jin",
+      "name": "Yakisoba Especial Misto",
+      "description": "Versão especial com carne, frango, camarão e legumes selecionados"
+    },
+    {
+      "id": 26,
+      "storeId": 3,
+      "category": "Entradas",
+      "name": "Rolinho Primavera",
+      "description": "Massa fina crocante recheada com legumes e carne"
+    },
+    {
+      "id": 27,
+      "storeId": 4,
+      "category": "Pratos Quentes",
+      "name": "Yakissoba Tradicional",
+      "description": "Macarrão oriental com legumes frescos e carne bovina ou frango"
+    },
+    {
+      "id": 28,
+      "storeId": 4,
+      "category": "Pratos Quentes",
+      "name": "Tempura de Camarão",
+      "description": "Camarões empanados em massa crocante, acompanhados de molho especial"
+    },
+    {
+      "id": 29,
+      "storeId": 4,
+      "category": "Pratos Quentes",
+      "name": "Guioza",
+      "description": "Pastéizinhos recheados com carne suína e vegetais, levemente grelhados"
+    },
+    {
+      "id": 30,
+      "storeId": 4,
+      "category": "Pratos Quentes",
+      "name": "Missoshiru",
+      "description": "Sopa de missô com tofu, cebolinha e alga wakame"
+    },
+    {
+      "id": 31,
+      "storeId": 4,
+      "category": "Pratos Quentes",
+      "name": "Katsu Don",
+      "description": "Filé de porco empanado servido sobre arroz com molho especial e ovos"
+    },
+    {
+      "id": 32,
+      "storeId": 4,
+      "category": "Pratos Quentes",
+      "name": "Gohan",
+      "description": "Arroz japonês tradicional"
+    },
+    {
+      "id": 33,
+      "storeId": 4,
+      "category": "Pratos Quentes",
+      "name": "Shimeji na Manteiga",
+      "description": "Cogumelos shimeji refogados na manteiga com molho shoyu"
+    },
+    {
+      "id": 34,
+      "storeId": 4,
+      "category": "Sushis",
+      "name": "Salmão Nigiri",
+      "description": "Fatias de salmão fresco sobre bolinhos de arroz temperado"
+    },
+    {
+      "id": 35,
+      "storeId": 4,
+      "category": "Sushis",
+      "name": "Atum Nigiri",
+      "description": "Atum fresco sobre arroz japonês"
+    },
+    {
+      "id": 36,
+      "storeId": 4,
+      "category": "Sushis",
+      "name": "Hossomaki de Pepino",
+      "description": "Rolinho fino com pepino crocante"
+    },
+    {
+      "id": 37,
+      "storeId": 4,
+      "category": "Sushis",
+      "name": "Uramaki Califórnia",
+      "description": "Arroz por fora, recheado com kani, manga e pepino"
+    },
+    {
+      "id": 38,
+      "storeId": 4,
+      "category": "Sushis",
+      "name": "Hot Roll",
+      "description": "Sushi empanado recheado com salmão e cream cheese"
+    },
+    {
+      "id": 39,
+      "storeId": 4,
+      "category": "Temakis",
+      "name": "Temaki de Salmão",
+      "description": "Cone de alga recheado com arroz, salmão fresco e cebolinha"
+    },
+    {
+      "id": 40,
+      "storeId": 4,
+      "category": "Temakis",
+      "name": "Temaki de Atum",
+      "description": "Atum fresco sobre arroz japonês"
+    },
+    {
+      "id": 41,
+      "storeId": 4,
+      "category": "Temakis",
+      "name": "Temaki Califórnia",
+      "description": "Rolinho fino com pepino crocante"
+    },
+    {
+      "id": 42,
+      "storeId": 4,
+      "category": "Temakis",
+      "name": "Temaki Skin",
+      "description": "Arroz por fora, recheado com kani, manga e pepino"
+    },
+    {
+      "id": 43,
+      "storeId": 4,
+      "category": "Temakis",
+      "name": "Temaki de Camarão Empanado",
+      "description": "Sushi empanado recheado com salmão e cream cheese"
+    },
+    {
+      "id": 44,
+      "storeId": 5,
+      "category": "Pizzas Tradicionais",
+      "name": "Pizza Calabresa",
+      "description": "Molho de tomate especial, mussarela, calabresa fatiada, cebola e azeitonas pretas"
+    },
+    {
+      "id": 45,
+      "storeId": 5,
+      "category": "Pizzas Tradicionais",
+      "name": "Pizza Margherita",
+      "description": "Molho de tomate artesanal, mussarela de búfala, rodelas de tomate e manjericão fresco"
+    },
+    {
+      "id": 46,
+      "storeId": 5,
+      "category": "Pizzas Tradicionais",
+      "name": "Pizza Portuguesa",
+      "description": "Mussarela, presunto, ovos cozidos, ervilha, cebola e azeitonas"
+    },
+    {
+      "id": 47,
+      "storeId": 5,
+      "category": "Pizzas Especiais",
+      "name": "Pizza 4 Queijos",
+      "description": "Mussarela, provolone, gorgonzola e catupiry legítimo"
+    },
+    {
+      "id": 48,
+      "storeId": 5,
+      "category": "Pizzas Especiais",
+      "name": "Pizza de Pepperoni",
+      "description": "Mussarela coberta com fatias de pepperoni crocante"
+    },
+    {
+      "id": 49,
+      "storeId": 6,
+      "category": "Pratos Executivos",
+      "name": "Frango Xadrez",
+      "description": "Cubos de frango com pimentões, cebola e amendoim ao molho shoyu"
+    },
+    {
+      "id": 50,
+      "storeId": 6,
+      "category": "Pratos Executivos",
+      "name": "Carne com Brócolis",
+      "description": "Tiras de carne bovina salteadas com brócolis frescos e molho de ostra"
+    },
+    {
+      "id": 51,
+      "storeId": 6,
+      "category": "Especiais Jin Jin",
+      "name": "Yakisoba Especial Misto",
+      "description": "Versão especial com carne, frango, camarão e legumes selecionados"
+    },
+    {
+      "id": 52,
+      "storeId": 6,
+      "category": "Entradas",
+      "name": "Rolinho Primavera",
+      "description": "Massa fina crocante recheada com legumes e carne"
+    },
+    {
+      "id": 53,
+      "storeId": 7,
+      "category": "Pratos Quentes",
+      "name": "Yakissoba Tradicional",
+      "description": "Macarrão oriental com legumes frescos e carne bovina ou frango"
+    },
+    {
+      "id": 54,
+      "storeId": 7,
+      "category": "Pratos Quentes",
+      "name": "Tempura de Camarão",
+      "description": "Camarões empanados em massa crocante, acompanhados de molho especial"
+    },
+    {
+      "id": 55,
+      "storeId": 7,
+      "category": "Pratos Quentes",
+      "name": "Guioza",
+      "description": "Pastéizinhos recheados com carne suína e vegetais, levemente grelhados"
+    },
+    {
+      "id": 56,
+      "storeId": 7,
+      "category": "Pratos Quentes",
+      "name": "Missoshiru",
+      "description": "Sopa de missô com tofu, cebolinha e alga wakame"
+    },
+    {
+      "id": 57,
+      "storeId": 7,
+      "category": "Pratos Quentes",
+      "name": "Katsu Don",
+      "description": "Filé de porco empanado servido sobre arroz com molho especial e ovos"
+    },
+    {
+      "id": 58,
+      "storeId": 7,
+      "category": "Pratos Quentes",
+      "name": "Gohan",
+      "description": "Arroz japonês tradicional"
+    },
+    {
+      "id": 59,
+      "storeId": 7,
+      "category": "Pratos Quentes",
+      "name": "Shimeji na Manteiga",
+      "description": "Cogumelos shimeji refogados na manteiga com molho shoyu"
+    },
+    {
+      "id": 60,
+      "storeId": 7,
+      "category": "Sushis",
+      "name": "Salmão Nigiri",
+      "description": "Fatias de salmão fresco sobre bolinhos de arroz temperado"
+    },
+    {
+      "id": 61,
+      "storeId": 7,
+      "category": "Sushis",
+      "name": "Atum Nigiri",
+      "description": "Atum fresco sobre arroz japonês"
+    },
+    {
+      "id": 62,
+      "storeId": 7,
+      "category": "Sushis",
+      "name": "Hossomaki de Pepino",
+      "description": "Rolinho fino com pepino crocante"
+    },
+    {
+      "id": 63,
+      "storeId": 7,
+      "category": "Sushis",
+      "name": "Uramaki Califórnia",
+      "description": "Arroz por fora, recheado com kani, manga e pepino"
+    },
+    {
+      "id": 64,
+      "storeId": 7,
+      "category": "Sushis",
+      "name": "Hot Roll",
+      "description": "Sushi empanado recheado com salmão e cream cheese"
+    },
+    {
+      "id": 65,
+      "storeId": 7,
+      "category": "Temakis",
+      "name": "Temaki de Salmão",
+      "description": "Cone de alga recheado com arroz, salmão fresco e cebolinha"
+    },
+    {
+      "id": 66,
+      "storeId": 7,
+      "category": "Temakis",
+      "name": "Temaki de Atum",
+      "description": "Atum fresco sobre arroz japonês"
+    },
+    {
+      "id": 67,
+      "storeId": 7,
+      "category": "Temakis",
+      "name": "Temaki Califórnia",
+      "description": "Rolinho fino com pepino crocante"
+    },
+    {
+      "id": 68,
+      "storeId": 7,
+      "category": "Temakis",
+      "name": "Temaki Skin",
+      "description": "Arroz por fora, recheado com kani, manga e pepino"
+    },
+    {
+      "id": 69,
+      "storeId": 7,
+      "category": "Temakis",
+      "name": "Temaki de Camarão Empanado",
+      "description": "Sushi empanado recheado com salmão e cream cheese"
+    },
+    {
+      "id": 70,
+      "storeId": 8,
+      "category": "Pizzas Tradicionais",
+      "name": "Pizza Calabresa",
+      "description": "Molho de tomate especial, mussarela, calabresa fatiada, cebola e azeitonas pretas"
+    },
+    {
+      "id": 71,
+      "storeId": 8,
+      "category": "Pizzas Tradicionais",
+      "name": "Pizza Margherita",
+      "description": "Molho de tomate artesanal, mussarela de búfala, rodelas de tomate e manjericão fresco"
+    },
+    {
+      "id": 72,
+      "storeId": 8,
+      "category": "Pizzas Tradicionais",
+      "name": "Pizza Portuguesa",
+      "description": "Mussarela, presunto, ovos cozidos, ervilha, cebola e azeitonas"
+    },
+    {
+      "id": 73,
+      "storeId": 8,
+      "category": "Pizzas Especiais",
+      "name": "Pizza 4 Queijos",
+      "description": "Mussarela, provolone, gorgonzola e catupiry legítimo"
+    },
+    {
+      "id": 74,
+      "storeId": 8,
+      "category": "Pizzas Especiais",
+      "name": "Pizza de Pepperoni",
+      "description": "Mussarela coberta com fatias de pepperoni crocante"
+    },
+    {
+      "id": 75,
+      "storeId": 9,
+      "category": "Pratos Executivos",
+      "name": "Frango Xadrez",
+      "description": "Cubos de frango com pimentões, cebola e amendoim ao molho shoyu"
+    },
+    {
+      "id": 76,
+      "storeId": 9,
+      "category": "Pratos Executivos",
+      "name": "Carne com Brócolis",
+      "description": "Tiras de carne bovina salteadas com brócolis frescos e molho de ostra"
+    },
+    {
+      "id": 77,
+      "storeId": 9,
+      "category": "Especiais Jin Jin",
+      "name": "Yakisoba Especial Misto",
+      "description": "Versão especial com carne, frango, camarão e legumes selecionados"
+    },
+    {
+      "id": 78,
+      "storeId": 9,
+      "category": "Entradas",
+      "name": "Rolinho Primavera",
+      "description": "Massa fina crocante recheada com legumes e carne"
+    },
+    {
+      "id": 79,
+      "storeId": 10,
+      "category": "Pratos Quentes",
+      "name": "Yakissoba Tradicional",
+      "description": "Macarrão oriental com legumes frescos e carne bovina ou frango"
+    },
+    {
+      "id": 80,
+      "storeId": 10,
+      "category": "Pratos Quentes",
+      "name": "Tempura de Camarão",
+      "description": "Camarões empanados em massa crocante, acompanhados de molho especial"
+    },
+    {
+      "id": 81,
+      "storeId": 10,
+      "category": "Pratos Quentes",
+      "name": "Guioza",
+      "description": "Pastéizinhos recheados com carne suína e vegetais, levemente grelhados"
+    },
+    {
+      "id": 82,
+      "storeId": 10,
+      "category": "Pratos Quentes",
+      "name": "Missoshiru",
+      "description": "Sopa de missô com tofu, cebolinha e alga wakame"
+    },
+    {
+      "id": 83,
+      "storeId": 10,
+      "category": "Pratos Quentes",
+      "name": "Katsu Don",
+      "description": "Filé de porco empanado servido sobre arroz com molho especial e ovos"
+    },
+    {
+      "id": 84,
+      "storeId": 10,
+      "category": "Pratos Quentes",
+      "name": "Gohan",
+      "description": "Arroz japonês tradicional"
+    },
+    {
+      "id": 85,
+      "storeId": 10,
+      "category": "Pratos Quentes",
+      "name": "Shimeji na Manteiga",
+      "description": "Cogumelos shimeji refogados na manteiga com molho shoyu"
+    },
+    {
+      "id": 86,
+      "storeId": 10,
+      "category": "Sushis",
+      "name": "Salmão Nigiri",
+      "description": "Fatias de salmão fresco sobre bolinhos de arroz temperado"
+    },
+    {
+      "id": 87,
+      "storeId": 10,
+      "category": "Sushis",
+      "name": "Atum Nigiri",
+      "description": "Atum fresco sobre arroz japonês"
+    },
+    {
+      "id": 88,
+      "storeId": 10,
+      "category": "Sushis",
+      "name": "Hossomaki de Pepino",
+      "description": "Rolinho fino com pepino crocante"
+    },
+    {
+      "id": 89,
+      "storeId": 10,
+      "category": "Sushis",
+      "name": "Uramaki Califórnia",
+      "description": "Arroz por fora, recheado com kani, manga e pepino"
+    },
+    {
+      "id": 90,
+      "storeId": 10,
+      "category": "Sushis",
+      "name": "Hot Roll",
+      "description": "Sushi empanado recheado com salmão e cream cheese"
+    },
+    {
+      "id": 91,
+      "storeId": 10,
+      "category": "Temakis",
+      "name": "Temaki de Salmão",
+      "description": "Cone de alga recheado com arroz, salmão fresco e cebolinha"
+    },
+    {
+      "id": 92,
+      "storeId": 10,
+      "category": "Temakis",
+      "name": "Temaki de Atum",
+      "description": "Atum fresco sobre arroz japonês"
+    },
+    {
+      "id": 93,
+      "storeId": 10,
+      "category": "Temakis",
+      "name": "Temaki Califórnia",
+      "description": "Rolinho fino com pepino crocante"
+    },
+    {
+      "id": 94,
+      "storeId": 10,
+      "category": "Temakis",
+      "name": "Temaki Skin",
+      "description": "Arroz por fora, recheado com kani, manga e pepino"
+    },
+    {
+      "id": 95,
+      "storeId": 10,
+      "category": "Temakis",
+      "name": "Temaki de Camarão Empanado",
+      "description": "Sushi empanado recheado com salmão e cream cheese"
+    },
+    {
+      "id": 96,
+      "storeId": 11,
+      "category": "Pizzas Tradicionais",
+      "name": "Pizza Calabresa",
+      "description": "Molho de tomate especial, mussarela, calabresa fatiada, cebola e azeitonas pretas"
+    },
+    {
+      "id": 97,
+      "storeId": 11,
+      "category": "Pizzas Tradicionais",
+      "name": "Pizza Margherita",
+      "description": "Molho de tomate artesanal, mussarela de búfala, rodelas de tomate e manjericão fresco"
+    },
+    {
+      "id": 98,
+      "storeId": 11,
+      "category": "Pizzas Tradicionais",
+      "name": "Pizza Portuguesa",
+      "description": "Mussarela, presunto, ovos cozidos, ervilha, cebola e azeitonas"
+    },
+    {
+      "id": 99,
+      "storeId": 11,
+      "category": "Pizzas Especiais",
+      "name": "Pizza 4 Queijos",
+      "description": "Mussarela, provolone, gorgonzola e catupiry legítimo"
+    },
+    {
+      "id": 100,
+      "storeId": 11,
+      "category": "Pizzas Especiais",
+      "name": "Pizza de Pepperoni",
+      "description": "Mussarela coberta com fatias de pepperoni crocante"
+    },
+    {
+      "id": 101,
+      "storeId": 12,
+      "category": "Pratos Executivos",
+      "name": "Frango Xadrez",
+      "description": "Cubos de frango com pimentões, cebola e amendoim ao molho shoyu"
+    },
+    {
+      "id": 102,
+      "storeId": 12,
+      "category": "Pratos Executivos",
+      "name": "Carne com Brócolis",
+      "description": "Tiras de carne bovina salteadas com brócolis frescos e molho de ostra"
+    },
+    {
+      "id": 103,
+      "storeId": 12,
+      "category": "Especiais Jin Jin",
+      "name": "Yakisoba Especial Misto",
+      "description": "Versão especial com carne, frango, camarão e legumes selecionados"
+    },
+    {
+      "id": 104,
+      "storeId": 12,
+      "category": "Entradas",
+      "name": "Rolinho Primavera",
+      "description": "Massa fina crocante recheada com legumes e carne"
+    },
+    {
+      "id": 105,
+      "storeId": 13,
+      "category": "Pratos Quentes",
+      "name": "Yakissoba Tradicional",
+      "description": "Macarrão oriental com legumes frescos e carne bovina ou frango"
+    },
+    {
+      "id": 106,
+      "storeId": 13,
+      "category": "Pratos Quentes",
+      "name": "Tempura de Camarão",
+      "description": "Camarões empanados em massa crocante, acompanhados de molho especial"
+    },
+    {
+      "id": 107,
+      "storeId": 13,
+      "category": "Pratos Quentes",
+      "name": "Guioza",
+      "description": "Pastéizinhos recheados com carne suína e vegetais, levemente grelhados"
+    },
+    {
+      "id": 108,
+      "storeId": 13,
+      "category": "Pratos Quentes",
+      "name": "Missoshiru",
+      "description": "Sopa de missô com tofu, cebolinha e alga wakame"
+    },
+    {
+      "id": 109,
+      "storeId": 13,
+      "category": "Pratos Quentes",
+      "name": "Katsu Don",
+      "description": "Filé de porco empanado servido sobre arroz com molho especial e ovos"
+    },
+    {
+      "id": 110,
+      "storeId": 13,
+      "category": "Pratos Quentes",
+      "name": "Gohan",
+      "description": "Arroz japonês tradicional"
+    },
+    {
+      "id": 111,
+      "storeId": 13,
+      "category": "Pratos Quentes",
+      "name": "Shimeji na Manteiga",
+      "description": "Cogumelos shimeji refogados na manteiga com molho shoyu"
+    },
+    {
+      "id": 112,
+      "storeId": 13,
+      "category": "Sushis",
+      "name": "Salmão Nigiri",
+      "description": "Fatias de salmão fresco sobre bolinhos de arroz temperado"
+    },
+    {
+      "id": 113,
+      "storeId": 13,
+      "category": "Sushis",
+      "name": "Atum Nigiri",
+      "description": "Atum fresco sobre arroz japonês"
+    },
+    {
+      "id": 114,
+      "storeId": 13,
+      "category": "Sushis",
+      "name": "Hossomaki de Pepino",
+      "description": "Rolinho fino com pepino crocante"
+    },
+    {
+      "id": 115,
+      "storeId": 13,
+      "category": "Sushis",
+      "name": "Uramaki Califórnia",
+      "description": "Arroz por fora, recheado com kani, manga e pepino"
+    },
+    {
+      "id": 116,
+      "storeId": 13,
+      "category": "Sushis",
+      "name": "Hot Roll",
+      "description": "Sushi empanado recheado com salmão e cream cheese"
+    },
+    {
+      "id": 117,
+      "storeId": 13,
+      "category": "Temakis",
+      "name": "Temaki de Salmão",
+      "description": "Cone de alga recheado com arroz, salmão fresco e cebolinha"
+    },
+    {
+      "id": 118,
+      "storeId": 13,
+      "category": "Temakis",
+      "name": "Temaki de Atum",
+      "description": "Atum fresco sobre arroz japonês"
+    },
+    {
+      "id": 119,
+      "storeId": 13,
+      "category": "Temakis",
+      "name": "Temaki Califórnia",
+      "description": "Rolinho fino com pepino crocante"
+    },
+    {
+      "id": 120,
+      "storeId": 13,
+      "category": "Temakis",
+      "name": "Temaki Skin",
+      "description": "Arroz por fora, recheado com kani, manga e pepino"
+    },
+    {
+      "id": 121,
+      "storeId": 13,
+      "category": "Temakis",
+      "name": "Temaki de Camarão Empanado",
+      "description": "Sushi empanado recheado com salmão e cream cheese"
+    },
+    {
+      "id": 122,
+      "storeId": 14,
+      "category": "Pizzas Tradicionais",
+      "name": "Pizza Calabresa",
+      "description": "Molho de tomate especial, mussarela, calabresa fatiada, cebola e azeitonas pretas"
+    },
+    {
+      "id": 123,
+      "storeId": 14,
+      "category": "Pizzas Tradicionais",
+      "name": "Pizza Margherita",
+      "description": "Molho de tomate artesanal, mussarela de búfala, rodelas de tomate e manjericão fresco"
+    },
+    {
+      "id": 124,
+      "storeId": 14,
+      "category": "Pizzas Tradicionais",
+      "name": "Pizza Portuguesa",
+      "description": "Mussarela, presunto, ovos cozidos, ervilha, cebola e azeitonas"
+    },
+    {
+      "id": 125,
+      "storeId": 14,
+      "category": "Pizzas Especiais",
+      "name": "Pizza 4 Queijos",
+      "description": "Mussarela, provolone, gorgonzola e catupiry legítimo"
+    },
+    {
+      "id": 126,
+      "storeId": 14,
+      "category": "Pizzas Especiais",
+      "name": "Pizza de Pepperoni",
+      "description": "Mussarela coberta com fatias de pepperoni crocante"
+    },
+    {
+      "id": 127,
+      "storeId": 15,
+      "category": "Pratos Executivos",
+      "name": "Frango Xadrez",
+      "description": "Cubos de frango com pimentões, cebola e amendoim ao molho shoyu"
+    },
+    {
+      "id": 128,
+      "storeId": 15,
+      "category": "Pratos Executivos",
+      "name": "Carne com Brócolis",
+      "description": "Tiras de carne bovina salteadas com brócolis frescos e molho de ostra"
+    },
+    {
+      "id": 129,
+      "storeId": 15,
+      "category": "Especiais Jin Jin",
+      "name": "Yakisoba Especial Misto",
+      "description": "Versão especial com carne, frango, camarão e legumes selecionados"
+    },
+    {
+      "id": 130,
+      "storeId": 15,
+      "category": "Entradas",
+      "name": "Rolinho Primavera",
+      "description": "Massa fina crocante recheada com legumes e carne"
+    },
+    {
+      "id": 131,
+      "storeId": 16,
+      "category": "Pratos Quentes",
+      "name": "Yakissoba Tradicional",
+      "description": "Macarrão oriental com legumes frescos e carne bovina ou frango"
+    },
+    {
+      "id": 132,
+      "storeId": 16,
+      "category": "Pratos Quentes",
+      "name": "Tempura de Camarão",
+      "description": "Camarões empanados em massa crocante, acompanhados de molho especial"
+    },
+    {
+      "id": 133,
+      "storeId": 16,
+      "category": "Pratos Quentes",
+      "name": "Guioza",
+      "description": "Pastéizinhos recheados com carne suína e vegetais, levemente grelhados"
+    },
+    {
+      "id": 134,
+      "storeId": 16,
+      "category": "Pratos Quentes",
+      "name": "Missoshiru",
+      "description": "Sopa de missô com tofu, cebolinha e alga wakame"
+    },
+    {
+      "id": 135,
+      "storeId": 16,
+      "category": "Pratos Quentes",
+      "name": "Katsu Don",
+      "description": "Filé de porco empanado servido sobre arroz com molho especial e ovos"
+    },
+    {
+      "id": 136,
+      "storeId": 16,
+      "category": "Pratos Quentes",
+      "name": "Gohan",
+      "description": "Arroz japonês tradicional"
+    },
+    {
+      "id": 137,
+      "storeId": 16,
+      "category": "Pratos Quentes",
+      "name": "Shimeji na Manteiga",
+      "description": "Cogumelos shimeji refogados na manteiga com molho shoyu"
+    },
+    {
+      "id": 138,
+      "storeId": 16,
+      "category": "Sushis",
+      "name": "Salmão Nigiri",
+      "description": "Fatias de salmão fresco sobre bolinhos de arroz temperado"
+    },
+    {
+      "id": 139,
+      "storeId": 16,
+      "category": "Sushis",
+      "name": "Atum Nigiri",
+      "description": "Atum fresco sobre arroz japonês"
+    },
+    {
+      "id": 140,
+      "storeId": 16,
+      "category": "Sushis",
+      "name": "Hossomaki de Pepino",
+      "description": "Rolinho fino com pepino crocante"
+    },
+    {
+      "id": 141,
+      "storeId": 16,
+      "category": "Sushis",
+      "name": "Uramaki Califórnia",
+      "description": "Arroz por fora, recheado com kani, manga e pepino"
+    },
+    {
+      "id": 142,
+      "storeId": 16,
+      "category": "Sushis",
+      "name": "Hot Roll",
+      "description": "Sushi empanado recheado com salmão e cream cheese"
+    },
+    {
+      "id": 143,
+      "storeId": 16,
+      "category": "Temakis",
+      "name": "Temaki de Salmão",
+      "description": "Cone de alga recheado com arroz, salmão fresco e cebolinha"
+    },
+    {
+      "id": 144,
+      "storeId": 16,
+      "category": "Temakis",
+      "name": "Temaki de Atum",
+      "description": "Atum fresco sobre arroz japonês"
+    },
+    {
+      "id": 145,
+      "storeId": 16,
+      "category": "Temakis",
+      "name": "Temaki Califórnia",
+      "description": "Rolinho fino com pepino crocante"
+    },
+    {
+      "id": 146,
+      "storeId": 16,
+      "category": "Temakis",
+      "name": "Temaki Skin",
+      "description": "Arroz por fora, recheado com kani, manga e pepino"
+    },
+    {
+      "id": 147,
+      "storeId": 16,
+      "category": "Temakis",
+      "name": "Temaki de Camarão Empanado",
+      "description": "Sushi empanado recheado com salmão e cream cheese"
+    },
+    {
+      "id": 148,
+      "storeId": 17,
+      "category": "Pizzas Tradicionais",
+      "name": "Pizza Calabresa",
+      "description": "Molho de tomate especial, mussarela, calabresa fatiada, cebola e azeitonas pretas"
+    },
+    {
+      "id": 149,
+      "storeId": 17,
+      "category": "Pizzas Tradicionais",
+      "name": "Pizza Margherita",
+      "description": "Molho de tomate artesanal, mussarela de búfala, rodelas de tomate e manjericão fresco"
+    },
+    {
+      "id": 150,
+      "storeId": 17,
+      "category": "Pizzas Tradicionais",
+      "name": "Pizza Portuguesa",
+      "description": "Mussarela, presunto, ovos cozidos, ervilha, cebola e azeitonas"
+    },
+    {
+      "id": 151,
+      "storeId": 17,
+      "category": "Pizzas Especiais",
+      "name": "Pizza 4 Queijos",
+      "description": "Mussarela, provolone, gorgonzola e catupiry legítimo"
+    },
+    {
+      "id": 152,
+      "storeId": 17,
+      "category": "Pizzas Especiais",
+      "name": "Pizza de Pepperoni",
+      "description": "Mussarela coberta com fatias de pepperoni crocante"
+    },
+    {
+      "id": 153,
+      "storeId": 18,
+      "category": "Pratos Executivos",
+      "name": "Frango Xadrez",
+      "description": "Cubos de frango com pimentões, cebola e amendoim ao molho shoyu"
+    },
+    {
+      "id": 154,
+      "storeId": 18,
+      "category": "Pratos Executivos",
+      "name": "Carne com Brócolis",
+      "description": "Tiras de carne bovina salteadas com brócolis frescos e molho de ostra"
+    },
+    {
+      "id": 155,
+      "storeId": 18,
+      "category": "Especiais Jin Jin",
+      "name": "Yakisoba Especial Misto",
+      "description": "Versão especial com carne, frango, camarão e legumes selecionados"
+    },
+    {
+      "id": 156,
+      "storeId": 18,
+      "category": "Entradas",
+      "name": "Rolinho Primavera",
+      "description": "Massa fina crocante recheada com legumes e carne"
+    }
+  ]
+}
