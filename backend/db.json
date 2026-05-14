@@ -46,7 +46,7 @@
       "reviews": 512,
       "avgPrice": 45,
       "tableMapImage": "/assets/images/mapa.webp",
-      "category": "Pizzaria",
+      "category": "Pizza",
       "time": "20 - 30 min",
       "schedule": [
         { "day": "Segunda-feira", "hours": "Fechado" },
@@ -118,7 +118,7 @@
       "reviews": 512,
       "avgPrice": 45,
       "tableMapImage": "/assets/images/mapa.webp",
-      "category": "Pizzaria",
+      "category": "Pizza",
       "time": "20 - 30 min",
       "schedule": [
         { "day": "Segunda-feira", "hours": "Fechado" },
@@ -190,7 +190,7 @@
       "reviews": 512,
       "avgPrice": 45,
       "tableMapImage": "/assets/images/mapa.webp",
-      "category": "Pizzaria",
+      "category": "Pizza",
       "time": "20 - 30 min",
       "schedule": [
         { "day": "Segunda-feira", "hours": "Fechado" },
@@ -262,7 +262,7 @@
       "reviews": 512,
       "avgPrice": 45,
       "tableMapImage": "/assets/images/mapa.webp",
-      "category": "Pizzaria",
+      "category": "Pizza",
       "time": "20 - 30 min",
       "schedule": [
         { "day": "Segunda-feira", "hours": "Fechado" },
@@ -334,7 +334,7 @@
       "reviews": 512,
       "avgPrice": 45,
       "tableMapImage": "/assets/images/mapa.webp",
-      "category": "Pizzaria",
+      "category": "Pizza",
       "time": "20 - 30 min",
       "schedule": [
         { "day": "Segunda-feira", "hours": "Fechado" },
@@ -406,7 +406,7 @@
       "reviews": 512,
       "avgPrice": 45,
       "tableMapImage": "/assets/images/mapa.webp",
-      "category": "Pizzaria",
+      "category": "Pizza",
       "time": "20 - 30 min",
       "schedule": [
         { "day": "Segunda-feira", "hours": "Fechado" },
