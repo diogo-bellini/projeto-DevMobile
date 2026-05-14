@@ -11,4 +11,6 @@ object Routes {
     var restaurantMenu = "restaurantMenu"
     var reserve = "reserve"
     var reserveConfirmation = "reserveConfirmation"
+
+    var profile = "profile"
 }
