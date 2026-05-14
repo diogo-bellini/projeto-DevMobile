@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">UPeek</string>
+    <string name="nav_home">Início</string>
+    <string name="nav_search">Buscar</string>
+    <string name="nav_reservations">Reservas</string>
+    <string name="nav_profile">Usuário</string>
 </resources>
