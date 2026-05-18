@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">UPeek</string>
+
+    <!-- Bottom Navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_search">Search</string>
+    <string name="nav_reservations">Reservations</string>
+    <string name="nav_profile">Profile</string>
+
+    <!-- Common -->
+    <string name="select_placeholder">Select</string>
+
+    <!-- Accessibility -->
+    <string name="cd_back_button">Back</string>
+    <string name="cd_banner">Banner</string>
+    <string name="cd_confirmed">Confirmed</string>
+    <string name="cd_select">Select</string>
+    <string name="cd_logo_placeholder">LOGO</string>
+
+    <!-- RestaurantHeader -->
+    <string name="restaurant_header_rating">⭐ %s (%d reviews)</string>
+    <string name="restaurant_header_avg_price">Average R$ %s/person</string>
+
+    <!-- RestaurantHomeScreen -->
+    <string name="restaurant_location_title">Location</string>
+    <string name="restaurant_schedule_title">Opening Hours</string>
+    <string name="restaurant_schedule_subtitle">See the busiest hours</string>
+    <string name="restaurant_table_map_title">Table Map</string>
+    <string name="restaurant_table_map_subtitle">View the area you want</string>
+    <string name="restaurant_menu_title">Menu</string>
+    <string name="restaurant_menu_subtitle">Check out our dish options</string>
+    <string name="restaurant_reserve_button">Go to Reservation</string>
+
+    <!-- RestaurantMenuScreen -->
+    <string name="menu_executive_section">Executive</string>
+
+    <!-- ReservationScreen -->
+    <string name="reservation_title">Reservation</string>
+    <string name="reservation_label_people">Number of people:</string>
+    <string name="reservation_label_date">Date:</string>
+    <string name="reservation_label_time">Time:</string>
+    <string name="reservation_label_table">Table:</string>
+    <string name="reservation_select_date">Select a date</string>
+    <string name="reservation_confirm_button">Confirm Reservation</string>
+
+    <!-- ReserveConfirmationScreen -->
+    <string name="confirmation_title">Reservation\nComplete</string>
+    <string name="confirmation_subtitle">Your reservation has been scheduled\nat the restaurant</string>
+    <string name="confirmation_back_button">Back to home</string>
+    <string name="confirmation_info_text">To view or edit your reservation, \naccess the \'Reservations\' section \nin the main menu.</string>
+</resources>
