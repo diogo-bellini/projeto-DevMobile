@@ -3,6 +3,6 @@
     "json-server": "^0.17.4"
   },
   "scripts": {
-    "dev": "json-server --watch db.json"
+    "dev": "json-server --watch db.json --host 0.0.0.0"
   }
 }

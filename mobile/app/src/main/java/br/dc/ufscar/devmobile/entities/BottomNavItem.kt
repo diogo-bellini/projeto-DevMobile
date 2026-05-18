@@ -19,6 +19,6 @@ data class BottomNavItem(
 val bottomNavItems = listOf(
     BottomNavItem(title = R.string.nav_home, icon = Icons.Default.Home, route = Routes.home),
     BottomNavItem(title = R.string.nav_search, icon = Icons.Default.Search, route = Routes.search),
-    BottomNavItem(title = R.string.nav_reservations, icon = Icons.AutoMirrored.Filled.EventNote, route = Routes.reserve),
+    BottomNavItem(title = R.string.nav_reservations, icon = Icons.AutoMirrored.Filled.EventNote, route = Routes.restaurantHome),
     BottomNavItem(title = R.string.nav_profile, icon = Icons.Default.Person, route = Routes.profile),
 )

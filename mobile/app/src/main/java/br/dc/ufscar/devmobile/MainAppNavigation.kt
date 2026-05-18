@@ -6,10 +6,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavGraph.Companion.findStartDestination
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import br.dc.ufscar.devmobile.composables.AppBottomNavigation
 import br.dc.ufscar.devmobile.entities.bottomNavItems
 import br.dc.ufscar.devmobile.views.*
@@ -53,14 +55,55 @@ fun MainAppNavigation() {
         ) {
             composable(Routes.register) { RegisterScreen() }
             composable(Routes.login) { LoginScreen() }
-            composable(Routes.home) { HomeScreen() }
+            composable(Routes.home) {
+                HomeScreen(onStoreClick = { storeId ->
+                    navController.navigate(Routes.restaurantHome(storeId))
+                })
+            }
             composable(Routes.search) { SearchScreen() }
             composable(Routes.filters) { FiltersScreen() }
             composable(Routes.searchResult) { SearchResultScreen() }
-            composable(Routes.restaurantHome) { RestaurantHomeScreen() }
-            composable(Routes.restaurantMenu) { RestaurantMenuScreen() }
-            composable(Routes.reserve) { ReserveScreen() }
-            composable(Routes.reserveConfirmation) { ReserveConfirmationScreen() }
+            composable(
+                route = Routes.restaurantHome,
+                arguments = listOf(navArgument("storeId") { type = NavType.IntType })
+            ) { backStackEntry ->
+                val storeId = backStackEntry.arguments?.getInt("storeId") ?: 1
+                RestaurantHomeScreen(
+                    storeId = storeId,
+                    onReserveClick = { navController.navigate(Routes.reserve(storeId)) },
+                    onMenuClick = { navController.navigate(Routes.restaurantMenu(storeId)) }
+                )
+            }
+            composable(
+                route = Routes.restaurantMenu,
+                arguments = listOf(navArgument("storeId") { type = NavType.IntType })
+            ) { backStackEntry ->
+                val storeId = backStackEntry.arguments?.getInt("storeId") ?: 1
+                RestaurantMenuScreen(
+                    storeId = storeId,
+                    onBackClick = { navController.navigateUp() }
+                )
+            }
+            composable(
+                route = Routes.reserve,
+                arguments = listOf(navArgument("storeId") { type = NavType.IntType })
+            ) { backStackEntry ->
+                val storeId = backStackEntry.arguments?.getInt("storeId") ?: 1
+                ReservationScreen(
+                    storeId = storeId,
+                    onBackClick = { navController.navigateUp() },
+                    onConfirmClick = { navController.navigate(Routes.reserveConfirmation) }
+                )
+            }
+            composable(Routes.reserveConfirmation) {
+                ReserveConfirmationScreen(
+                    onBackToHomeClick = {
+                        navController.navigate(Routes.home) {
+                            popUpTo(Routes.home) { inclusive = true }
+                        }
+                    }
+                )
+            }
         }
     }
 }
