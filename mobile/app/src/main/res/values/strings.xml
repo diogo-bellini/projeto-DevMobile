@@ -1,7 +1,51 @@
 <resources>
     <string name="app_name">UPeek</string>
+
+    <!-- Bottom Navigation -->
     <string name="nav_home">Início</string>
     <string name="nav_search">Buscar</string>
     <string name="nav_reservations">Reservas</string>
     <string name="nav_profile">Usuário</string>
+
+    <!-- Common -->
+    <string name="select_placeholder">Selecione</string>
+
+    <!-- Accessibility -->
+    <string name="cd_back_button">Voltar</string>
+    <string name="cd_banner">Banner</string>
+    <string name="cd_confirmed">Confirmado</string>
+    <string name="cd_select">Selecionar</string>
+    <string name="cd_logo_placeholder">LOGO</string>
+
+    <!-- RestaurantHeader -->
+    <string name="restaurant_header_rating">⭐ %s (%d avaliações)</string>
+    <string name="restaurant_header_avg_price">Média de R$ %s/pessoa</string>
+
+    <!-- RestaurantHomeScreen -->
+    <string name="restaurant_location_title">Localização</string>
+    <string name="restaurant_schedule_title">Horários de Funcionamento</string>
+    <string name="restaurant_schedule_subtitle">Veja os horários de maior lotação</string>
+    <string name="restaurant_table_map_title">Mapa de Mesas</string>
+    <string name="restaurant_table_map_subtitle">Visualize aqui o local que você deseja</string>
+    <string name="restaurant_menu_title">Cardápio</string>
+    <string name="restaurant_menu_subtitle">Confira nossas opções de pratos</string>
+    <string name="restaurant_reserve_button">Ir Para a Reserva</string>
+
+    <!-- RestaurantMenuScreen -->
+    <string name="menu_executive_section">Executivo</string>
+
+    <!-- ReservationScreen -->
+    <string name="reservation_title">Reserva</string>
+    <string name="reservation_label_people">Número de pessoas:</string>
+    <string name="reservation_label_date">Data:</string>
+    <string name="reservation_label_time">Horário:</string>
+    <string name="reservation_label_table">Mesa:</string>
+    <string name="reservation_select_date">Selecione a data</string>
+    <string name="reservation_confirm_button">Confirmar Reserva</string>
+
+    <!-- ReserveConfirmationScreen -->
+    <string name="confirmation_title">Reserva\nConcluída</string>
+    <string name="confirmation_subtitle">Sua reserva já foi agendada\nno restaurante</string>
+    <string name="confirmation_back_button">Voltar a página principal</string>
+    <string name="confirmation_info_text">Para visualizar ou editar sua reserva, \nacesse a seção \'Reservas\' no menu \nprincipal.</string>
 </resources>
