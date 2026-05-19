@@ -20,5 +20,8 @@ interface StoreApiService {
     suspend fun createReservation(@Body request: ReservationRequest): ReservationResponse
 
     @GET("stores")
-    suspend fun getStoresByCategory(@Query("category") category : String) : List<Store>
+    suspend fun getStoresByCategory(@Query("category") category : String) : List<SearchResultDto>
+
+    @GET("stores")
+    suspend fun getStoresBySubString(@Query("namepiece_like") substring : String) : List<Store>
 }

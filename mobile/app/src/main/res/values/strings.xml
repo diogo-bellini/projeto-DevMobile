@@ -7,6 +7,12 @@
     <string name="nav_reservations">Reservas</string>
     <string name="nav_profile">Usuário</string>
 
+    <!--  SearchScreen -->
+    <string name="category_label">Categorias</string>
+    <string name="searchbar_label">🔍</string>
+    <string name="search_result_distance">Distância: %.2f Km</string>
+    <string name="search_result_avg_price">Preço Médio: R$ %.2f</string>
+
     <!-- All Categories -->
     <string name="pizza_category">Pizza</string>
     <string name="lanches_category">Lanches</string>
@@ -24,6 +30,9 @@
     <string name="doces_category">Doces</string>
     <string name="salgados_category">Salgados</string>
     <string name="salada_category">Salada</string>
+
+    <!--  FilterScreen  -->
+    <string name="filter_title">Filtros</string>
 
     <!-- Common -->
     <string name="select_placeholder">Selecione</string>

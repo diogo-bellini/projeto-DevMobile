@@ -60,9 +60,35 @@ fun MainAppNavigation() {
                     navController.navigate(Routes.restaurantHome(storeId))
                 })
             }
-            composable(Routes.search) { SearchScreen() }
+            composable(Routes.search) {
+                SearchScreen(
+                    onRestaurantClick = { storeId ->
+                        navController.navigate(Routes.restaurantHome(storeId = storeId))
+                    },
+                    onCategoryClick = { categoryName ->
+                        navController.navigate(Routes.searchResult(categoryName))
+                    },
+                    onFilterClick = {
+                        navController.navigate((Routes.filters))
+                    }
+                )
+            }
             composable(Routes.filters) { FiltersScreen() }
-            composable(Routes.searchResult) { SearchResultScreen() }
+            composable(
+                route = Routes.searchResult,
+                arguments = listOf(navArgument("category") { type = NavType.StringType })
+            ) { backStackEntry ->
+                val category = backStackEntry.arguments?.getString("category") ?: ""
+                SearchResultScreen(
+                    category = category,
+                    onRestaurantClick = { storeId ->
+                        navController.navigate(Routes.restaurantHome(storeId = storeId))
+                    },
+                    onFilterClick = {
+                        navController.navigate((Routes.filters))
+                    }
+                )
+            }
             composable(
                 route = Routes.restaurantHome,
                 arguments = listOf(navArgument("storeId") { type = NavType.IntType })
