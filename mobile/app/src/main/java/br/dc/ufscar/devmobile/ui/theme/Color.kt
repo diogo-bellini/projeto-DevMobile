@@ -15,3 +15,5 @@ val GoldPrimary = Color(0xFFC9A227)
 
 val LightGray = Color(0xFFD9D9D9)
 val DarkGray = Color(0xFF242424)
+
+val Gray = Color(0xFFE9E9E9)
