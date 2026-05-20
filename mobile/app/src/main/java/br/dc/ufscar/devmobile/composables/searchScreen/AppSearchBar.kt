@@ -39,7 +39,15 @@ fun AppSearchBar(
         },
         expanded = expanded,
         onExpandedChange = { expanded = it },
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier
+            .fillMaxWidth()
+            .then(
+                if (expanded) {
+                    Modifier.heightIn(max = 400.dp)
+                } else {
+                    Modifier
+                }
+            )
     ) {
         LazyColumn(
             modifier = Modifier.fillMaxWidth(),

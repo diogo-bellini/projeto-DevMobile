@@ -12,7 +12,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -37,7 +36,6 @@ fun MainAppNavigation() {
         Routes.reserveConfirmation
     )
 
-    val context = LocalContext.current
     var hasPermission by remember { mutableStateOf(false) }
 
     val launcherLocation = rememberLauncherForActivityResult(

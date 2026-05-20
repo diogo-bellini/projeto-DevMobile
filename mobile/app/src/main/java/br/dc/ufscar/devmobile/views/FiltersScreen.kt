@@ -33,7 +33,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import br.dc.ufscar.devmobile.R
 import br.dc.ufscar.devmobile.ui.AppFontSize
 import br.dc.ufscar.devmobile.ui.theme.DarkGray
