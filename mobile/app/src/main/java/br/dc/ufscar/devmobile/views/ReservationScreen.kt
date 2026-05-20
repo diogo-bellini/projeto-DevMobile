@@ -30,13 +30,6 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-private val timeSlots: List<String> = buildList {
-    for (hour in 11..22) {
-        add("%02d:00".format(hour))
-        add("%02d:30".format(hour))
-    }
-    add("23:00")
-}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -49,6 +42,18 @@ fun ReservationScreen(
     val store by viewModel.store.collectAsState()
     val uiState by viewModel.uiState.collectAsState()
     val scrollState = rememberScrollState()
+
+    val timeSlots = remember(store) {
+        val open = store?.openHour ?: 11
+        val close = store?.closeHour ?: 23
+        buildList {
+            for (hour in open until close) {
+                add("%02d:00".format(hour))
+                add("%02d:30".format(hour))
+            }
+            add("%02d:00".format(close))
+        }
+    }
 
     var showDatePicker by remember { mutableStateOf(false) }
     val datePickerState = rememberDatePickerState()

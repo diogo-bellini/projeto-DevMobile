@@ -12,5 +12,7 @@ data class Store(
     val category: String,
     val time: String,
     val latitude: Double,
-    val longitude: Double
+    val longitude: Double,
+    val openHour: Int,
+    val closeHour: Int
 )
