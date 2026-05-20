@@ -22,11 +22,25 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import br.dc.ufscar.devmobile.composables.AppBottomNavigation
 import br.dc.ufscar.devmobile.entities.bottomNavItems
+import androidx.lifecycle.viewmodel.compose.viewModel
+import br.dc.ufscar.devmobile.configs.UPeekDatabase
+import br.dc.ufscar.devmobile.viewmodels.AuthViewModel
+import br.dc.ufscar.devmobile.viewmodels.AuthViewModelFactory
+import br.dc.ufscar.devmobile.viewmodels.ProfileViewModel
+import br.dc.ufscar.devmobile.viewmodels.ProfileViewModelFactory
 import br.dc.ufscar.devmobile.views.*
 
 @Composable
 fun MainAppNavigation() {
     val navController = rememberNavController()
+    val context = LocalContext.current
+    val db = UPeekDatabase.getInstance(context)
+    val authViewModel: AuthViewModel = viewModel(
+        factory = AuthViewModelFactory(db.userDao())
+    )
+    val profileViewModel: ProfileViewModel = viewModel(
+        factory = ProfileViewModelFactory(db.userDao())
+    )
 
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
@@ -37,7 +51,6 @@ fun MainAppNavigation() {
         Routes.reserveConfirmation
     )
 
-    val context = LocalContext.current
     var hasPermission by remember { mutableStateOf(false) }
 
     val launcherLocation = rememberLauncherForActivityResult(
@@ -76,9 +89,10 @@ fun MainAppNavigation() {
         ) {
             composable(Routes.register) {
                 RegisterScreen(
-                    onFinalizeClick = {
-                        navController.navigate(Routes.login) {
-                            popUpTo(Routes.register) { inclusive = true }
+                    viewModel = authViewModel,
+                    onRegisterSuccess = {
+                        navController.navigate(Routes.home) {
+                            popUpTo(0) { inclusive = true }
                         }
                     },
                     onLoginClick = {
@@ -88,7 +102,8 @@ fun MainAppNavigation() {
             }
             composable(Routes.login) {
                 LoginScreen(
-                    onLoginClick = {
+                    viewModel = authViewModel,
+                    onLoginSuccess = {
                         navController.navigate(Routes.home) {
                             popUpTo(Routes.login) { inclusive = true }
                         }
@@ -171,6 +186,17 @@ fun MainAppNavigation() {
                     onBackToHomeClick = {
                         navController.navigate(Routes.home) {
                             popUpTo(Routes.home) { inclusive = true }
+                        }
+                    }
+                )
+            }
+            composable(Routes.profile) {
+                ProfileScreen(
+                    viewModel = profileViewModel,
+                    onBackClick = { navController.navigateUp() },
+                    onLogout = {
+                        navController.navigate(Routes.login) {
+                            popUpTo(0) { inclusive = true }
                         }
                     }
                 )

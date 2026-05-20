@@ -24,4 +24,10 @@ interface StoreApiService {
 
     @GET("stores")
     suspend fun getStoresBySubString(@Query("namepiece_like") substring : String) : List<Store>
+
+    @POST("login")
+    suspend fun login(@Body request: LoginRequest): UserResponse
+
+    @POST("users")
+    suspend fun register(@Body request: RegisterRequest): UserResponse
 }
