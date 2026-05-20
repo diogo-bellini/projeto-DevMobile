@@ -16,9 +16,9 @@ import kotlinx.coroutines.launch
 
 class SearchResultViewModel : ViewModel() {
     val resultsSearchBar = mutableStateListOf<RestaurantSearchItemDto>()
-    val resultCategory = mutableStateListOf<SearchResultDto>()
-    var isLoading by mutableStateOf(false)
+    val otherResults = mutableStateListOf<SearchResultDto>()
 
+    var isLoading by mutableStateOf(false)
     var userLatitude by mutableDoubleStateOf(0.0)
     var userLongitude by mutableDoubleStateOf(0.0)
 
@@ -71,31 +71,85 @@ class SearchResultViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 val stores = RetrofitClient.storeApi.getStoresByCategory(category)
-                resultCategory.clear()
-                val results = stores.map { store ->
-                    SearchResultDto(
-                        logo = store.logo,
-                        namepiece = store.namepiece,
-                        latitude = store.latitude,
-                        longitude = store.longitude,
-                        avgPrice = store.avgPrice,
-                        id = store.id,
-                        rating = store.rating,
-                        reviews = store.reviews
-                    )
-                }
+                otherResults.clear()
 
-                results.forEach { store ->
-                    store.distance = calculateDistance(
-                        userLatitude, userLongitude,
-                        store.latitude.toDouble(), store.longitude.toDouble()
+                val results = stores.map { store ->
+                    store.copy(
+                        distance = calculateDistance(
+                            userLatitude, userLongitude,
+                            store.latitude.toDouble(), store.longitude.toDouble()
+                        )
                     )
                 }
-                resultCategory.addAll(results)
+                otherResults.addAll(results)
             } catch (e: Exception){
-                resultCategory.clear()
+                otherResults.clear()
             } finally {
                 isLoading = false
+            }
+        }
+    }
+
+    fun searchStoresByFilters(category: String?, price : Float, distance : Float, minReviews : Int, maxReviews : Int, minRating : Int){
+        isLoading = true
+        viewModelScope.launch {
+            if (category != null) {
+                try {
+                    val stores = RetrofitClient.storeApi.getStoresByFiltersWithCategory(
+                        maxPrice = price,
+                        minReviews = minReviews,
+                        maxReviews = maxReviews,
+                        minRating = minRating,
+                        category = category
+                    )
+                    otherResults.clear()
+
+                    val filteredResults = stores.mapNotNull { store ->
+                        val calculatedDist = calculateDistance(
+                            userLatitude, userLongitude,
+                            store.latitude.toDouble(), store.longitude.toDouble()
+                        )
+
+                        if (calculatedDist <= distance) {
+                            store.copy(distance = calculatedDist)
+                        } else {
+                            null
+                        }
+                    }
+                    otherResults.addAll(filteredResults)
+                } catch (e : Exception){
+                    otherResults.clear()
+                } finally {
+                    isLoading = false
+                }
+            } else {
+                try {
+                    val stores = RetrofitClient.storeApi.getStoresByFilters(
+                        maxPrice = price,
+                        minReviews = minReviews,
+                        maxReviews = maxReviews,
+                        minRating = minRating,
+                    )
+                    otherResults.clear()
+
+                    val filteredResults = stores.mapNotNull { store ->
+                        val calculatedDist = calculateDistance(
+                            userLatitude, userLongitude,
+                            store.latitude.toDouble(), store.longitude.toDouble()
+                        )
+
+                        if (calculatedDist <= distance) {
+                            store.copy(distance = calculatedDist)
+                        } else {
+                            null
+                        }
+                    }
+                    otherResults.addAll(filteredResults)
+                } catch (e : Exception){
+                    otherResults.clear()
+                } finally {
+                    isLoading = false
+                }
             }
         }
     }

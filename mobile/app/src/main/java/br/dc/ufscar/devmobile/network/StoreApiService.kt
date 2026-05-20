@@ -24,4 +24,21 @@ interface StoreApiService {
 
     @GET("stores")
     suspend fun getStoresBySubString(@Query("namepiece_like") substring : String) : List<Store>
+    
+    @GET("stores")
+    suspend fun getStoresByFilters(
+        @Query("avgPrice_lte") maxPrice: Float,
+        @Query("reviews_gte") minReviews: Int,
+        @Query("reviews_lte") maxReviews: Int,
+        @Query("rating_gte") minRating: Int,
+    ) : List<SearchResultDto>
+
+    @GET("stores")
+    suspend fun getStoresByFiltersWithCategory(
+        @Query("category") category: String?,
+        @Query("avgPrice_lte") maxPrice: Float,
+        @Query("reviews_gte") minReviews: Int,
+        @Query("reviews_lte") maxReviews: Int,
+        @Query("rating_gte") minRating: Int,
+    ) : List<SearchResultDto>
 }

@@ -39,11 +39,11 @@ import br.dc.ufscar.devmobile.ui.AppFontSize
 import br.dc.ufscar.devmobile.ui.theme.DarkGray
 import br.dc.ufscar.devmobile.ui.theme.DarkRed
 import br.dc.ufscar.devmobile.ui.theme.GoldPrimary
-import br.dc.ufscar.devmobile.viewmodels.FiltersViewModel
 
 @Composable
 fun FiltersScreen(
-    viewModel : FiltersViewModel = viewModel()
+    onApplyingFilterClick : (price : Float, distance : Float, minReviews : Int, maxReviews : Int, minRating : Int, category : String) -> Unit,
+    category : String = ""
 ) {
     var price by remember { mutableFloatStateOf(0f) }
     var distance by remember { mutableFloatStateOf(0f) }
@@ -73,7 +73,7 @@ fun FiltersScreen(
             verticalArrangement = Arrangement.spacedBy(24.dp)
         ) {
             Text(
-                text = "Nota mínima:",
+                text = stringResource(R.string.filter_min_rating),
                 fontSize = AppFontSize.Large,
                 fontWeight = FontWeight.Bold
             )
@@ -100,7 +100,7 @@ fun FiltersScreen(
                 }
             }
             Text(
-                text = "Preço médio: R$ ${String.format("%.2f", price)}",
+                text = stringResource(R.string.filter_avg_price, price),
                 fontSize = AppFontSize.Large,
                 fontWeight = FontWeight.Bold
             )
@@ -116,7 +116,7 @@ fun FiltersScreen(
                 modifier = Modifier.fillMaxWidth()
             )
             Text(
-                text = "Distância máxima: ${String.format("%.0f", distance)} km",
+                text = stringResource(R.string.filter_max_distance, distance),
                 fontSize = AppFontSize.Large,
                 fontWeight = FontWeight.Bold
             )
@@ -133,7 +133,11 @@ fun FiltersScreen(
                 modifier = Modifier.fillMaxWidth()
             )
             Text(
-                text = "Quantidade de avaliações: ${reviews.start.toInt()} - ${reviews.endInclusive.toInt()}",
+                text = stringResource(
+                    R.string.filter_reviews_range,
+                    reviews.start.toInt(),
+                    reviews.endInclusive.toInt()
+                ),
                 fontSize = AppFontSize.Large,
                 fontWeight = FontWeight.Bold
             )
@@ -149,7 +153,14 @@ fun FiltersScreen(
                 modifier = Modifier.fillMaxWidth()
             )
             Button(
-                onClick = { /* TODO: Implement filter logic in viewModel */ },
+                onClick = { onApplyingFilterClick(
+                    price,
+                    distance,
+                    minRating,
+                    reviews.start.toInt(),
+                    reviews.endInclusive.toInt(),
+                    category
+                ) },
                 colors = ButtonDefaults.buttonColors(
                     containerColor = GoldPrimary,
                     contentColor = Color.White
@@ -157,7 +168,7 @@ fun FiltersScreen(
                 modifier = Modifier.fillMaxWidth(0.7f)
             ) {
                 Text(
-                    text = "Aplicar Filtros",
+                    text = stringResource(R.string.filter_apply_button),
                     fontSize = AppFontSize.Large,
                     fontWeight = FontWeight.Bold
                 )

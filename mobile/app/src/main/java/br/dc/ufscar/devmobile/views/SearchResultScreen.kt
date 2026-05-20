@@ -27,20 +27,56 @@ import br.dc.ufscar.devmobile.viewmodels.SearchResultViewModel
 @Composable
 fun SearchResultScreen(
     hasPermission : Boolean,
-    category : String,
+    category : String? = null,
+    price : Float? = null,
+    distance : Float? = null,
+    minReviews : Int? = null,
+    maxReviews : Int? = null,
+    minRating : Int? = null,
     onRestaurantClick : (Int) -> Unit = {},
-    onFilterClick : () -> Unit = {},
+    onFilterClick : (String?) -> Unit,
     viewModel : SearchResultViewModel = viewModel()
 ) {
     val context = LocalContext.current
 
-    LaunchedEffect(category, hasPermission) {
+    LaunchedEffect(category, price, distance, minReviews, maxReviews, minRating, hasPermission) {
         if (hasPermission) {
             viewModel.getLocation(context) {
-                viewModel.searchStoresByCategory(category)
+                if (category != null && price != null) {
+                    viewModel.searchStoresByFilters(
+                        price = price,
+                        distance = distance ?: 100f,
+                        minReviews = minReviews ?: 0,
+                        maxReviews = maxReviews ?: 1000,
+                        minRating = minRating ?: 0,
+                        category = category
+                    )
+                } else if (category != null) {
+                    viewModel.searchStoresByCategory(category)
+                } else if (price != null) {
+                    viewModel.searchStoresByFilters(
+                        price = price,
+                        distance = distance ?: 100f,
+                        minReviews = minReviews ?: 0,
+                        maxReviews = maxReviews ?: 1000,
+                        minRating = minRating ?: 0,
+                        category = category
+                    )
+                }
             }
         } else {
-            viewModel.searchStoresByCategory(category)
+            if (category != null) {
+                viewModel.searchStoresByCategory(category)
+            } else if (price != null) {
+                viewModel.searchStoresByFilters(
+                    price = price,
+                    distance = distance ?: 100f,
+                    minReviews = minReviews ?: 0,
+                    maxReviews = maxReviews ?: 1000,
+                    minRating = minRating ?: 0,
+                    category = category
+                )
+            }
         }
     }
 
@@ -54,7 +90,7 @@ fun SearchResultScreen(
         )
 
         Button(
-            onClick = onFilterClick,
+            onClick = { onFilterClick(category) },
             modifier = Modifier.align(Alignment.CenterHorizontally),
             colors = ButtonDefaults.buttonColors(
                 containerColor = DarkRed,
@@ -68,7 +104,7 @@ fun SearchResultScreen(
             verticalArrangement = Arrangement.spacedBy(12.dp),
             modifier = Modifier.fillMaxSize()
         ) {
-            items(viewModel.resultCategory) { store ->
+            items(viewModel.otherResults) { store ->
                 SearchResultCard(
                     store = store,
                     onClick = { onRestaurantClick(store.id) }
