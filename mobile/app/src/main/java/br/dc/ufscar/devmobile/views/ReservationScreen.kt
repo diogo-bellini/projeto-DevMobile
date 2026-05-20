@@ -66,7 +66,7 @@ fun ReservationScreen(
         if (uiState is ReservationUiState.Success) onConfirmClick()
     }
 
-    val dataSelecionada = datePickerState.selectedDateMillis?.let { millis ->
+    val dataPicked = datePickerState.selectedDateMillis?.let { millis ->
         SimpleDateFormat("dd MMM, EEE", Locale("pt", "BR"))
             .format(Date(millis))
             .replaceFirstChar { it.uppercase() }
@@ -108,7 +108,7 @@ fun ReservationScreen(
             }
 
             FormRow(label = stringResource(R.string.reservation_label_date)) {
-                DropdownSelector(text = dataSelecionada) { showDatePicker = true }
+                DropdownSelector(text = dataPicked) { showDatePicker = true }
             }
 
             FormRow(label = stringResource(R.string.reservation_label_time)) {
