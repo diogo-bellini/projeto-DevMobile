@@ -71,11 +71,33 @@ fun MainAppNavigation() {
     ) { paddingValues ->
         NavHost(
             navController = navController,
-            startDestination = Routes.home,
+            startDestination = Routes.login,
             modifier = Modifier.padding(paddingValues)
         ) {
-            composable(Routes.register) { RegisterScreen() }
-            composable(Routes.login) { LoginScreen() }
+            composable(Routes.register) {
+                RegisterScreen(
+                    onFinalizeClick = {
+                        navController.navigate(Routes.login) {
+                            popUpTo(Routes.register) { inclusive = true }
+                        }
+                    },
+                    onLoginClick = {
+                        navController.popBackStack()
+                    }
+                )
+            }
+            composable(Routes.login) {
+                LoginScreen(
+                    onLoginClick = {
+                        navController.navigate(Routes.home) {
+                            popUpTo(Routes.login) { inclusive = true }
+                        }
+                    },
+                    onRegisterClick = {
+                        navController.navigate(Routes.register)
+                    }
+                )
+            }
             composable(Routes.home) {
                 HomeScreen(onStoreClick = { storeId ->
                     navController.navigate(Routes.restaurantHome(storeId))
