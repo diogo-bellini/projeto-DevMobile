@@ -20,6 +20,7 @@ import org.osmdroid.views.overlay.Marker
 fun OpenStreetMapComponent(
     latitude: Double,
     longitude: Double,
+    title: String = "",
     modifier: Modifier = Modifier
 ) {
     val context = LocalContext.current
@@ -42,7 +43,7 @@ fun OpenStreetMapComponent(
             val marker = Marker(this)
             marker.position = point
             marker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
-            marker.title = "Sushi Fan"
+            marker.title = title
 
             this.overlays.add(marker)
         }

@@ -98,6 +98,7 @@ fun RestaurantHomeScreen(
             OpenStreetMapComponent(
                 latitude = store?.latitude ?: -22.0087082,
                 longitude = store?.longitude ?: -47.8909263,
+                title = store?.name ?: "",
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(230.dp)
