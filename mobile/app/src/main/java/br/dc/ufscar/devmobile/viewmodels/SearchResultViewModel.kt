@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableDoubleStateOf
 import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -16,17 +17,22 @@ import kotlinx.coroutines.launch
 class SearchResultViewModel : ViewModel() {
     val resultsSearchBar = mutableStateListOf<RestaurantSearchItemDto>()
     val resultCategory = mutableStateListOf<SearchResultDto>()
+    var isLoading by mutableStateOf(false)
 
     var userLatitude by mutableDoubleStateOf(0.0)
     var userLongitude by mutableDoubleStateOf(0.0)
 
-    fun getLocation(context : Context) {
+    fun getLocation(context : Context, onFinished : () -> Unit = {}) {
+        isLoading = true
         LocationService.getCurrentLocation(
             context = context,
             onSuccess = { lat, long ->
                 setLocation(lat, long)
+                onFinished()
             },
-            onError = {}
+            onError = {
+                onFinished()
+            }
         )
     }
 
@@ -61,6 +67,7 @@ class SearchResultViewModel : ViewModel() {
     }
 
     fun searchStoresByCategory(category : String){
+        isLoading = true
         viewModelScope.launch {
             try {
                 val stores = RetrofitClient.storeApi.getStoresByCategory(category)
@@ -72,7 +79,9 @@ class SearchResultViewModel : ViewModel() {
                         latitude = store.latitude,
                         longitude = store.longitude,
                         avgPrice = store.avgPrice,
-                        id = store.id
+                        id = store.id,
+                        rating = store.rating,
+                        reviews = store.reviews
                     )
                 }
 
@@ -85,6 +94,8 @@ class SearchResultViewModel : ViewModel() {
                 resultCategory.addAll(results)
             } catch (e: Exception){
                 resultCategory.clear()
+            } finally {
+                isLoading = false
             }
         }
     }

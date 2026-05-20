@@ -34,11 +34,14 @@ fun SearchResultScreen(
 ) {
     val context = LocalContext.current
 
-    LaunchedEffect(category) {
+    LaunchedEffect(category, hasPermission) {
         if (hasPermission) {
-            viewModel.getLocation(context)
+            viewModel.getLocation(context) {
+                viewModel.searchStoresByCategory(category)
+            }
+        } else {
+            viewModel.searchStoresByCategory(category)
         }
-        viewModel.searchStoresByCategory(category)
     }
 
     Column(

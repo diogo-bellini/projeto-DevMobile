@@ -25,6 +25,8 @@ object AppFontSize {
 
     /** Tamanho: 20.sp */
     val Large = 20.sp
+
+    val XLarge = 30.sp
     
     /** Tamanho: 24.sp */
     val Huge = 54.sp

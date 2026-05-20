@@ -37,7 +37,7 @@ fun SearchScreen(
 ){
     val context = androidx.compose.ui.platform.LocalContext.current
 
-    LaunchedEffect(Unit) {
+    LaunchedEffect(hasPermission) {
         if (hasPermission){
             viewModel.getLocation(context)
         }
