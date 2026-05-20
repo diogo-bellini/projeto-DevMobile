@@ -1,8 +1,13 @@
 package br.dc.ufscar.devmobile.viewmodels
 
+import android.content.Context
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableDoubleStateOf
 import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import br.dc.ufscar.devmobile.configs.LocationService
 import br.dc.ufscar.devmobile.network.RestaurantSearchItemDto
 import br.dc.ufscar.devmobile.network.RetrofitClient
 import br.dc.ufscar.devmobile.network.SearchResultDto
@@ -12,9 +17,23 @@ class SearchResultViewModel : ViewModel() {
     val resultsSearchBar = mutableStateListOf<RestaurantSearchItemDto>()
     val resultCategory = mutableStateListOf<SearchResultDto>()
 
-    // Localização fictícia do usuário
-    var userLatitude: Double = -23.5505
-    var userLongitude: Double = -46.6333
+    var userLatitude by mutableDoubleStateOf(0.0)
+    var userLongitude by mutableDoubleStateOf(0.0)
+
+    fun getLocation(context : Context) {
+        LocationService.getCurrentLocation(
+            context = context,
+            onSuccess = { lat, long ->
+                setLocation(lat, long)
+            },
+            onError = {}
+        )
+    }
+
+    fun setLocation(lat : Double, long : Double){
+        userLatitude = lat
+        userLongitude = long
+    }
 
     fun searchStoresBySubstring(text : String){
         if (text.isBlank()) {

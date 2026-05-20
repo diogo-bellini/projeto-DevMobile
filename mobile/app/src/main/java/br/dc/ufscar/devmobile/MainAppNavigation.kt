@@ -1,10 +1,18 @@
 package br.dc.ufscar.devmobile
 
+import android.Manifest
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -28,6 +36,19 @@ fun MainAppNavigation() {
         Routes.login,
         Routes.reserveConfirmation
     )
+
+    val context = LocalContext.current
+    var hasPermission by remember { mutableStateOf(false) }
+
+    val launcherLocation = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.RequestPermission()
+    ) { granted ->
+        hasPermission = granted
+    }
+
+    LaunchedEffect(Unit) {
+        launcherLocation.launch(Manifest.permission.ACCESS_FINE_LOCATION)
+    }
 
     Scaffold(
         bottomBar = {
@@ -62,6 +83,7 @@ fun MainAppNavigation() {
             }
             composable(Routes.search) {
                 SearchScreen(
+                    hasPermission = hasPermission,
                     onRestaurantClick = { storeId ->
                         navController.navigate(Routes.restaurantHome(storeId = storeId))
                     },
@@ -80,6 +102,7 @@ fun MainAppNavigation() {
             ) { backStackEntry ->
                 val category = backStackEntry.arguments?.getString("category") ?: ""
                 SearchResultScreen(
+                    hasPermission = hasPermission,
                     category = category,
                     onRestaurantClick = { storeId ->
                         navController.navigate(Routes.restaurantHome(storeId = storeId))

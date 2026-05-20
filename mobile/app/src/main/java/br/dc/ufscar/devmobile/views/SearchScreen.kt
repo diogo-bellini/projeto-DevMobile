@@ -2,9 +2,7 @@ package br.dc.ufscar.devmobile.views
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.absolutePadding
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -12,6 +10,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -30,11 +29,20 @@ import br.dc.ufscar.devmobile.viewmodels.SearchResultViewModel
 
 @Composable
 fun SearchScreen(
+    hasPermission : Boolean,
     viewModel : SearchResultViewModel = viewModel(),
     onRestaurantClick : (Int) -> Unit = {},
     onCategoryClick : (String) -> Unit = {},
     onFilterClick : () -> Unit = {}
 ){
+    val context = androidx.compose.ui.platform.LocalContext.current
+
+    LaunchedEffect(Unit) {
+        if (hasPermission){
+            viewModel.getLocation(context)
+        }
+    }
+
     Column(
         Modifier
             .absolutePadding(20.dp, 20.dp, 20.dp)
