@@ -26,9 +26,11 @@
 
     <!--  SearchScreen -->
     <string name="category_label">Categorias</string>
-    <string name="searchbar_label">🔍</string>
+    <string name="searchbar_label">🔍 Buscar</string>
     <string name="search_result_distance">Distância: %.2f Km</string>
     <string name="search_result_avg_price">Preço Médio: R$ %.2f</string>
+    <string name="search_result_rating">★ %.1f</string>
+    <string name="search_result_reviews">(%d)</string>
 
     <!-- All Categories -->
     <string name="pizza_category">Pizza</string>
@@ -50,6 +52,11 @@
 
     <!--  FilterScreen  -->
     <string name="filter_title">Filtros</string>
+    <string name="filter_min_rating">Nota mínima:</string>
+    <string name="filter_avg_price">Preço médio máximo: R$ %.2f</string>
+    <string name="filter_max_distance">Distância máxima: %.0f km</string>
+    <string name="filter_reviews_range">Quantidade de avaliações: %1$d - %2$d</string>
+    <string name="filter_apply_button">Aplicar Filtros</string>
 
     <!-- Common -->
     <string name="select_placeholder">Selecione</string>

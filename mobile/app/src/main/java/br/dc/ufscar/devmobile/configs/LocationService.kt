@@ -2,6 +2,8 @@ package br.dc.ufscar.devmobile.configs
 
 import android.content.Context
 import com.google.android.gms.location.LocationServices
+import com.google.android.gms.location.Priority
+import com.google.android.gms.tasks.CancellationTokenSource
 
 object LocationService{
     @SuppressWarnings("MissingPermission")
@@ -11,12 +13,22 @@ object LocationService{
         onError : (String) -> Unit
     ){
         val client = LocationServices.getFusedLocationProviderClient(context)
+        val cancellationTokenSource = CancellationTokenSource()
 
-        client.lastLocation.addOnSuccessListener { location ->
+        client.getCurrentLocation(
+            Priority.PRIORITY_HIGH_ACCURACY,
+            cancellationTokenSource.token
+        ).addOnSuccessListener { location ->
             if (location != null){
                 onSuccess(location.latitude, location.longitude)
             } else {
-                onError("Localização não disponível")
+                client.lastLocation.addOnSuccessListener { lastLoc ->
+                    if (lastLoc != null) {
+                        onSuccess(lastLoc.latitude, lastLoc.longitude)
+                    } else {
+                        onError("Localização não disponível")
+                    }
+                }
             }
         }.addOnFailureListener {
             onError("Erro ao obter localização")

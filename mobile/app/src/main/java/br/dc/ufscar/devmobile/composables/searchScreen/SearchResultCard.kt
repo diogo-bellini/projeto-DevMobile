@@ -17,12 +17,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import br.dc.ufscar.devmobile.R
 import br.dc.ufscar.devmobile.network.SearchResultDto
 import br.dc.ufscar.devmobile.ui.AppFontSize
+import br.dc.ufscar.devmobile.ui.theme.GoldPrimary
 import br.dc.ufscar.devmobile.ui.theme.Gray
 import coil.compose.rememberAsyncImagePainter
 
@@ -63,6 +65,10 @@ fun SearchResultCard(
                     text = stringResource(R.string.search_result_avg_price, store.avgPrice),
                     fontSize = AppFontSize.Small,
                 )
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    Text(text = stringResource(R.string.search_result_rating, store.rating), fontSize = AppFontSize.Small, color = GoldPrimary, fontWeight = FontWeight.SemiBold)
+                    Text(text = stringResource(R.string.search_result_reviews, store.reviews), fontSize = AppFontSize.Small, color = Color.Gray)
+                }
             }
         }
     }
