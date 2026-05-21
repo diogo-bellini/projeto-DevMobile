@@ -3,8 +3,8 @@ package br.dc.ufscar.devmobile.viewmodels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import br.dc.ufscar.devmobile.daos.UserDao
 import br.dc.ufscar.devmobile.entities.User
+import br.dc.ufscar.devmobile.repositories.UserRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -15,7 +15,7 @@ sealed class ProfileState {
     object Empty : ProfileState()
 }
 
-class ProfileViewModel(private val userDao: UserDao) : ViewModel() {
+class ProfileViewModel(private val userRepository: UserRepository) : ViewModel() {
 
     private val _state = MutableStateFlow<ProfileState>(ProfileState.Loading)
     val state: StateFlow<ProfileState> = _state
@@ -26,7 +26,7 @@ class ProfileViewModel(private val userDao: UserDao) : ViewModel() {
 
     fun loadUser() {
         viewModelScope.launch {
-            userDao.getCurrent().collect { user ->
+            userRepository.getCurrentUser().collect { user ->
                 _state.value = if (user != null) ProfileState.Success(user) else ProfileState.Empty
             }
         }
@@ -34,17 +34,17 @@ class ProfileViewModel(private val userDao: UserDao) : ViewModel() {
 
     fun logout(onDone: () -> Unit) {
         viewModelScope.launch {
-            userDao.deleteAll()
+            userRepository.logout()
             onDone()
         }
     }
 }
 
-class ProfileViewModelFactory(private val userDao: UserDao) : ViewModelProvider.Factory {
+class ProfileViewModelFactory(private val userRepository: UserRepository) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(ProfileViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
-            return ProfileViewModel(userDao) as T
+            return ProfileViewModel(userRepository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

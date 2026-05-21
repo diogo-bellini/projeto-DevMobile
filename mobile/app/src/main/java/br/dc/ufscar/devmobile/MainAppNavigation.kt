@@ -24,6 +24,11 @@ import br.dc.ufscar.devmobile.composables.AppBottomNavigation
 import br.dc.ufscar.devmobile.entities.bottomNavItems
 import androidx.lifecycle.viewmodel.compose.viewModel
 import br.dc.ufscar.devmobile.configs.UPeekDatabase
+import br.dc.ufscar.devmobile.network.RetrofitClient
+import br.dc.ufscar.devmobile.repositories.MenuRepository
+import br.dc.ufscar.devmobile.repositories.ReservationRepository
+import br.dc.ufscar.devmobile.repositories.StoreRepository
+import br.dc.ufscar.devmobile.repositories.UserRepository
 import br.dc.ufscar.devmobile.viewmodels.AuthViewModel
 import br.dc.ufscar.devmobile.viewmodels.AuthViewModelFactory
 import br.dc.ufscar.devmobile.viewmodels.ProfileViewModel
@@ -35,11 +40,17 @@ fun MainAppNavigation() {
     val navController = rememberNavController()
     val context = LocalContext.current
     val db = UPeekDatabase.getInstance(context)
+
+    val userRepository = remember { UserRepository(db.userDao(), RetrofitClient.storeApi) }
+    val storeRepository = remember { StoreRepository(RetrofitClient.storeApi) }
+    val reservationRepository = remember { ReservationRepository(RetrofitClient.storeApi) }
+    val menuRepository = remember { MenuRepository(RetrofitClient.storeApi) }
+
     val authViewModel: AuthViewModel = viewModel(
-        factory = AuthViewModelFactory(db.userDao())
+        factory = AuthViewModelFactory(userRepository)
     )
     val profileViewModel: ProfileViewModel = viewModel(
-        factory = ProfileViewModelFactory(db.userDao())
+        factory = ProfileViewModelFactory(userRepository)
     )
 
     val navBackStackEntry by navController.currentBackStackEntryAsState()
@@ -114,12 +125,16 @@ fun MainAppNavigation() {
                 )
             }
             composable(Routes.home) {
-                HomeScreen(onStoreClick = { storeId ->
-                    navController.navigate(Routes.restaurantHome(storeId))
-                })
+                HomeScreen(
+                    storeRepository = storeRepository,
+                    onStoreClick = { storeId ->
+                        navController.navigate(Routes.restaurantHome(storeId))
+                    }
+                )
             }
             composable(Routes.search) {
                 SearchScreen(
+                    storeRepository = storeRepository,
                     hasPermission = hasPermission,
                     onRestaurantClick = { storeId ->
                         navController.navigate(Routes.restaurantHome(storeId = storeId))
@@ -171,6 +186,7 @@ fun MainAppNavigation() {
                 val maxReviews = backStackEntry.arguments?.getInt("maxReviews")?.takeIf { it != -1 }
                 val minRating = backStackEntry.arguments?.getInt("minRating")?.takeIf { it != -1 }
                 SearchResultScreen(
+                    storeRepository = storeRepository,
                     hasPermission = hasPermission,
                     category = category,
                     price = price,
@@ -192,6 +208,7 @@ fun MainAppNavigation() {
             ) { backStackEntry ->
                 val storeId = backStackEntry.arguments?.getInt("storeId") ?: 1
                 RestaurantHomeScreen(
+                    storeRepository = storeRepository,
                     storeId = storeId,
                     onBackClick = { navController.navigateUp() },
                     onReserveClick = { navController.navigate(Routes.reserve(storeId)) },
@@ -204,6 +221,7 @@ fun MainAppNavigation() {
             ) { backStackEntry ->
                 val storeId = backStackEntry.arguments?.getInt("storeId") ?: 1
                 RestaurantMenuScreen(
+                    menuRepository = menuRepository,
                     storeId = storeId,
                     onBackClick = { navController.navigateUp() }
                 )
@@ -214,6 +232,8 @@ fun MainAppNavigation() {
             ) { backStackEntry ->
                 val storeId = backStackEntry.arguments?.getInt("storeId") ?: 1
                 ReservationScreen(
+                    storeRepository = storeRepository,
+                    reservationRepository = reservationRepository,
                     storeId = storeId,
                     onBackClick = { navController.navigateUp() },
                     onConfirmClick = { navController.navigate(Routes.reserveConfirmation) }

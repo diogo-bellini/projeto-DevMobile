@@ -8,8 +8,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import br.dc.ufscar.devmobile.network.ReservationRequest
-import br.dc.ufscar.devmobile.network.RetrofitClient
 import br.dc.ufscar.devmobile.network.Store
+import br.dc.ufscar.devmobile.repositories.ReservationRepository
+import br.dc.ufscar.devmobile.repositories.StoreRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -24,7 +25,11 @@ sealed class ReservationUiState {
     data class Error(val message: String) : ReservationUiState()
 }
 
-class ReservationViewModel(private val storeId: Int) : ViewModel() {
+class ReservationViewModel(
+    private val storeId: Int,
+    private val storeRepository: StoreRepository,
+    private val reservationRepository: ReservationRepository
+) : ViewModel() {
 
     private val _store = MutableStateFlow<Store?>(null)
     val store: StateFlow<Store?> = _store
@@ -45,7 +50,7 @@ class ReservationViewModel(private val storeId: Int) : ViewModel() {
 
     private fun fetchStore() {
         viewModelScope.launch {
-            runCatching { RetrofitClient.storeApi.getStore(storeId) }
+            runCatching { storeRepository.getStore(storeId) }
                 .onSuccess { _store.value = it }
         }
     }
@@ -60,7 +65,7 @@ class ReservationViewModel(private val storeId: Int) : ViewModel() {
         viewModelScope.launch {
             _uiState.value = ReservationUiState.Loading
             runCatching {
-                RetrofitClient.storeApi.createReservation(
+                reservationRepository.createReservation(
                     ReservationRequest(
                         storeId = storeId,
                         date = dateStr,
@@ -76,10 +81,14 @@ class ReservationViewModel(private val storeId: Int) : ViewModel() {
         }
     }
 
-    class Factory(private val storeId: Int) : ViewModelProvider.Factory {
+    class Factory(
+        private val storeId: Int,
+        private val storeRepository: StoreRepository,
+        private val reservationRepository: ReservationRepository
+    ) : ViewModelProvider.Factory {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             @Suppress("UNCHECKED_CAST")
-            return ReservationViewModel(storeId) as T
+            return ReservationViewModel(storeId, storeRepository, reservationRepository) as T
         }
     }
 }

@@ -23,6 +23,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
+import br.dc.ufscar.devmobile.repositories.MenuRepository
 import br.dc.ufscar.devmobile.viewmodels.MenuViewModel
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -42,9 +43,10 @@ data class MenuSection(val title: String, val items: List<MenuItem>)
 
 @Composable
 fun RestaurantMenuScreen(
+    menuRepository: MenuRepository,
     storeId: Int = 1,
     onBackClick: () -> Unit = {},
-    viewModel: MenuViewModel = viewModel(factory = MenuViewModel.Factory(storeId))
+    viewModel: MenuViewModel = viewModel(factory = MenuViewModel.Factory(storeId, menuRepository))
 ) {
     val sections by viewModel.sections.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()

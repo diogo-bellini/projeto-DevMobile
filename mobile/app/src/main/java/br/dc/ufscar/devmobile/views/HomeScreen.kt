@@ -20,12 +20,14 @@ import br.dc.ufscar.devmobile.R
 import br.dc.ufscar.devmobile.composables.home.BannerSection
 import br.dc.ufscar.devmobile.composables.home.HomeTopBar
 import br.dc.ufscar.devmobile.composables.home.StoreSection
+import br.dc.ufscar.devmobile.repositories.StoreRepository
 import br.dc.ufscar.devmobile.viewmodels.HomeViewModel
 
 @Composable
 fun HomeScreen(
+    storeRepository: StoreRepository,
     onStoreClick: (Int) -> Unit = {},
-    viewModel: HomeViewModel = viewModel()
+    viewModel: HomeViewModel = viewModel(factory = HomeViewModel.Factory(storeRepository))
 ) {
     val stores by viewModel.stores.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()

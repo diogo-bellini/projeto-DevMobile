@@ -32,16 +32,18 @@ import br.dc.ufscar.devmobile.ui.AppFontSize
 import br.dc.ufscar.devmobile.ui.theme.GoldPrimary
 import br.dc.ufscar.devmobile.composables.OpenStreetMapComponent
 import br.dc.ufscar.devmobile.composables.RestaurantHeader
+import br.dc.ufscar.devmobile.repositories.StoreRepository
 import br.dc.ufscar.devmobile.viewmodels.RestaurantViewModel
 
 @Composable
 fun RestaurantHomeScreen(
+    storeRepository: StoreRepository,
     modifier: Modifier = Modifier,
     storeId: Int = 1,
     onBackClick: () -> Unit = {},
     onReserveClick: () -> Unit = {},
     onMenuClick: () -> Unit = {},
-    viewModel: RestaurantViewModel = viewModel(factory = RestaurantViewModel.Factory(storeId))
+    viewModel: RestaurantViewModel = viewModel(factory = RestaurantViewModel.Factory(storeId, storeRepository))
 ) {
     val store by viewModel.store.collectAsState()
     val scrollState = rememberScrollState()

@@ -25,12 +25,14 @@ import br.dc.ufscar.devmobile.entities.categorySearchItems
 import br.dc.ufscar.devmobile.ui.AppFontSize
 import br.dc.ufscar.devmobile.ui.theme.DarkRed
 import br.dc.ufscar.devmobile.ui.theme.OpenSans
+import br.dc.ufscar.devmobile.repositories.StoreRepository
 import br.dc.ufscar.devmobile.viewmodels.SearchResultViewModel
 
 @Composable
 fun SearchScreen(
+    storeRepository: StoreRepository,
     hasPermission : Boolean,
-    viewModel : SearchResultViewModel = viewModel(),
+    viewModel : SearchResultViewModel = viewModel(factory = SearchResultViewModel.Factory(storeRepository)),
     onRestaurantClick : (Int) -> Unit = {},
     onCategoryClick : (String) -> Unit = {},
     onFilterClick : () -> Unit = {}
