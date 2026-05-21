@@ -122,6 +122,11 @@
     <string name="reservation_label_table">Table:</string>
     <string name="reservation_select_date">Select a date</string>
     <string name="reservation_confirm_button">Confirm Reservation</string>
+    <string name="reservation_table_number">Table %d</string>
+    <plurals name="reservation_people_count">
+        <item quantity="one">%d person</item>
+        <item quantity="other">%d people</item>
+    </plurals>
 
     <!-- ReserveConfirmationScreen -->
     <string name="confirmation_title">Reservation\nComplete</string>

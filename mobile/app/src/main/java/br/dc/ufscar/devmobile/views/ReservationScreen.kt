@@ -14,6 +14,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -42,6 +43,18 @@ fun ReservationScreen(
     val store by viewModel.store.collectAsState()
     val uiState by viewModel.uiState.collectAsState()
     val scrollState = rememberScrollState()
+
+    val context = LocalContext.current
+    val peopleOptions = remember(context) {
+        (1..10).map { count ->
+            context.resources.getQuantityString(R.plurals.reservation_people_count, count, count)
+        }
+    }
+    val tableOptions = remember(context) {
+        (1..20).map { num ->
+            context.getString(R.string.reservation_table_number, num)
+        }
+    }
 
     val timeSlots = remember(store) {
         val open = store?.openHour ?: 11
@@ -101,8 +114,8 @@ fun ReservationScreen(
 
             FormRow(label = stringResource(R.string.reservation_label_people)) {
                 SelectableDropdown(
-                    selected = if (viewModel.people > 0) "${viewModel.people} pessoa${if (viewModel.people > 1) "s" else ""}" else stringResource(R.string.select_placeholder),
-                    options = (1..10).map { "$it pessoa${if (it > 1) "s" else ""}" },
+                    selected = if (viewModel.people > 0) peopleOptions[viewModel.people - 1] else stringResource(R.string.select_placeholder),
+                    options = peopleOptions,
                     onSelect = { index -> viewModel.people = index + 1 }
                 )
             }
@@ -121,8 +134,8 @@ fun ReservationScreen(
 
             FormRow(label = stringResource(R.string.reservation_label_table)) {
                 SelectableDropdown(
-                    selected = if (viewModel.selectedTable > 0) "Mesa ${viewModel.selectedTable}" else stringResource(R.string.select_placeholder),
-                    options = (1..20).map { "Mesa $it" },
+                    selected = if (viewModel.selectedTable > 0) tableOptions[viewModel.selectedTable - 1] else stringResource(R.string.select_placeholder),
+                    options = tableOptions,
                     onSelect = { index -> viewModel.selectedTable = index + 1 }
                 )
             }
@@ -171,12 +184,12 @@ fun ReservationScreen(
                 onDismissRequest = { showDatePicker = false },
                 confirmButton = {
                     TextButton(onClick = { showDatePicker = false }) {
-                        Text("OK", color = DarkRed)
+                        Text(stringResource(R.string.ok), color = DarkRed)
                     }
                 },
                 dismissButton = {
                     TextButton(onClick = { showDatePicker = false }) {
-                        Text("Cancelar", color = DarkRed)
+                        Text(stringResource(R.string.cancel), color = DarkRed)
                     }
                 },
                 colors = DatePickerDefaults.colors(containerColor = Color.White)
@@ -254,7 +267,7 @@ fun DropdownSelector(text: String, onClick: () -> Unit) {
         Spacer(modifier = Modifier.width(8.dp))
         Icon(
             imageVector = Icons.Default.ArrowDropDown,
-            contentDescription = "Selecionar",
+            contentDescription = stringResource(R.string.cd_select),
             tint = Color.Black,
             modifier = Modifier.size(20.dp)
         )
