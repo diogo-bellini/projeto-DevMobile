@@ -14,7 +14,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -50,16 +50,11 @@ fun ReservationScreen(
     val uiState by viewModel.uiState.collectAsState()
     val scrollState = rememberScrollState()
 
-    val context = LocalContext.current
-    val peopleOptions = remember(context) {
-        (1..10).map { count ->
-            context.resources.getQuantityString(R.plurals.reservation_people_count, count, count)
-        }
+    val peopleOptions = (1..10).map { count ->
+        pluralStringResource(R.plurals.reservation_people_count, count, count)
     }
-    val tableOptions = remember(context) {
-        (1..20).map { num ->
-            context.getString(R.string.reservation_table_number, num)
-        }
+    val tableOptions = (1..20).map { num ->
+        stringResource(R.string.reservation_table_number, num)
     }
 
     val timeSlots = remember(store) {
