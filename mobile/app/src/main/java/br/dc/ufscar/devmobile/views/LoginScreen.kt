@@ -56,8 +56,8 @@ fun LoginScreen(
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
 
-    var emailError by remember { mutableStateOf<String?>(null) }
-    var passwordError by remember { mutableStateOf<String?>(null) }
+    var emailError by remember { mutableStateOf<Int?>(null) }
+    var passwordError by remember { mutableStateOf<Int?>(null) }
 
     val authState by viewModel.authState.collectAsState()
     val isLoading = authState is AuthState.Loading
@@ -72,20 +72,20 @@ fun LoginScreen(
     fun validate(): Boolean {
         var valid = true
         if (email.isBlank()) {
-            emailError = "Informe seu email."
+            emailError = R.string.error_inform_email
             valid = false
         } else if (!emailRegex.matches(email)) {
-            emailError = "Email inválido."
+            emailError = R.string.error_invalid_email
             valid = false
         } else {
             emailError = null
         }
 
         if (password.isBlank()) {
-            passwordError = "Informe sua senha."
+            passwordError = R.string.error_inform_password
             valid = false
         } else if (password.length < 6) {
-            passwordError = "A senha deve ter no mínimo 6 caracteres."
+            passwordError = R.string.error_password_too_short
             valid = false
         } else {
             passwordError = null
@@ -109,7 +109,7 @@ fun LoginScreen(
         ) {
             Image(
                 painter = painterResource(id = R.drawable.upeek_logo),
-                contentDescription = "Logo UPeek",
+                contentDescription = stringResource(R.string.cd_logo),
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(vertical = 40.dp)
@@ -127,7 +127,7 @@ fun LoginScreen(
             )
             if (emailError != null) {
                 Text(
-                    text = emailError!!,
+                    text = stringResource(emailError!!),
                     color = Color(0xFFFFCDD2),
                     fontSize = 12.sp,
                     modifier = Modifier
@@ -150,7 +150,7 @@ fun LoginScreen(
             )
             if (passwordError != null) {
                 Text(
-                    text = passwordError!!,
+                    text = stringResource(passwordError!!),
                     color = Color(0xFFFFCDD2),
                     fontSize = 12.sp,
                     modifier = Modifier
@@ -160,14 +160,18 @@ fun LoginScreen(
             }
 
             if (authState is AuthState.Error) {
-                Spacer(modifier = Modifier.height(12.dp))
-                Text(
-                    text = (authState as AuthState.Error).message,
-                    color = Color(0xFFFFCDD2),
-                    fontSize = 13.sp,
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier.fillMaxWidth()
-                )
+                val error = authState as AuthState.Error
+                val message = error.messageResId?.let { stringResource(it) } ?: error.message ?: ""
+                if (message.isNotEmpty()) {
+                    Spacer(modifier = Modifier.height(12.dp))
+                    Text(
+                        text = message,
+                        color = Color(0xFFFFCDD2),
+                        fontSize = 13.sp,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                }
             }
 
             Spacer(modifier = Modifier.height(40.dp))

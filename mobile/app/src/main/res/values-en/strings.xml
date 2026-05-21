@@ -7,6 +7,13 @@
     <string name="enter_button">ENTER</string>
     <string name="forgot_password">Forgot my password</string>
     <string name="dont_have_account_register">Don\'t have an account? Register here.</string>
+    <string name="error_inform_email">Please enter your email.</string>
+    <string name="error_invalid_email">Invalid email.</string>
+    <string name="error_inform_password">Please enter your password.</string>
+    <string name="error_password_too_short">Password must be at least 6 characters long.</string>
+    <string name="error_login_invalid_credentials">Incorrect email or password.</string>
+    <string name="error_login_generic">Login error. Please try again.</string>
+    <string name="error_no_connection">No connection to the server.</string>
 
     <!-- Register -->
     <string name="full_name_placeholder">Full Name</string>
@@ -17,6 +24,14 @@
     <string name="terms_agreement">I have read and agree to the system\'s terms of use.</string>
     <string name="finalize_register_button">FINALIZE REGISTRATION</string>
     <string name="already_have_account_login">Already have an account? Log in here.</string>
+    <string name="error_inform_full_name">Please enter your full name.</string>
+    <string name="error_inform_cpf">Please enter your CPF.</string>
+    <string name="error_cpf_invalid">CPF must have 11 digits.</string>
+    <string name="error_select_birth_date">Please select your birth date.</string>
+    <string name="error_confirm_password">Please confirm your password.</string>
+    <string name="error_passwords_mismatch">Passwords do not match.</string>
+    <string name="error_accept_terms">You must accept the terms.</string>
+    <string name="error_register_generic">Registration error. Please try again.</string>
 
     <!-- Bottom Navigation -->
     <string name="nav_home">Home</string>
@@ -58,8 +73,20 @@
     <string name="filter_reviews_range">Number of reviews: %1$d - %2$d</string>
     <string name="filter_apply_button">Apply Filters</string>
 
+    <!-- Profile -->
+    <string name="profile_title">Personal Data</string>
+    <string name="profile_no_user">No user found.</string>
+    <string name="logout_button">Log out</string>
+    <string name="user_info_section">User Information</string>
+    <string name="full_name_label">Full name</string>
+    <string name="cpf_label">CPF</string>
+    <string name="email_label">Email</string>
+    <string name="birth_date_label">Birth date</string>
+
     <!-- Common -->
     <string name="select_placeholder">Select</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
 
 
     <!-- Accessibility -->
@@ -67,6 +94,7 @@
     <string name="cd_banner">Banner</string>
     <string name="cd_confirmed">Confirmed</string>
     <string name="cd_select">Select</string>
+    <string name="cd_logo">UPeek Logo</string>
     <string name="cd_logo_placeholder">LOGO</string>
 
     <!-- RestaurantHeader -->
@@ -100,4 +128,9 @@
     <string name="confirmation_subtitle">Your reservation has been scheduled\nat the restaurant</string>
     <string name="confirmation_back_button">Back to home</string>
     <string name="confirmation_info_text">To view or edit your reservation, \naccess the \'Reservations\' section \nin the main menu.</string>
+
+    <!-- Home -->
+    <string name="home_suggested_title">Suggested</string>
+    <string name="home_latest_title">Latest restaurants</string>
+    <string name="home_error_loading">Error loading stores:\n%s</string>
 </resources>

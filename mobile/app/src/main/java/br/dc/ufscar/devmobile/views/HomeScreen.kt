@@ -10,6 +10,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -36,7 +37,7 @@ fun HomeScreen(
                 isLoading -> CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
 
                 error != null -> Text(
-                    text = "Erro ao carregar lojas:\n$error",
+                    text = stringResource(R.string.home_error_loading, error!!),
                     color = Color.Red,
                     textAlign = TextAlign.Center,
                     modifier = Modifier.align(Alignment.Center).padding(24.dp)
@@ -48,7 +49,7 @@ fun HomeScreen(
                 ) {
                     item {
                         StoreSection(
-                            title = "Sugeridos",
+                            title = stringResource(R.string.home_suggested_title),
                             stores = stores,
                             onStoreClick = onStoreClick
                         )
@@ -60,7 +61,7 @@ fun HomeScreen(
 
                     item {
                         StoreSection(
-                            title = "Últimos restaurantes",
+                            title = stringResource(R.string.home_latest_title),
                             stores = stores.reversed(),
                             onStoreClick = onStoreClick
                         )

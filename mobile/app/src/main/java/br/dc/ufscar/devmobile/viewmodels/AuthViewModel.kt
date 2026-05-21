@@ -18,7 +18,7 @@ sealed class AuthState {
     object Idle : AuthState()
     object Loading : AuthState()
     data class Success(val user: UserResponse) : AuthState()
-    data class Error(val message: String) : AuthState()
+    data class Error(val message: String? = null, val messageResId: Int? = null) : AuthState()
 }
 
 class AuthViewModel(private val userDao: UserDao) : ViewModel() {
@@ -34,13 +34,13 @@ class AuthViewModel(private val userDao: UserDao) : ViewModel() {
                 saveUserLocally(user, senha)
                 _authState.value = AuthState.Success(user)
             } catch (e: retrofit2.HttpException) {
-                val msg = when (e.code()) {
-                    401 -> "Email ou senha incorretos."
-                    else -> "Erro ao fazer login. Tente novamente."
+                val resId = when (e.code()) {
+                    401 -> br.dc.ufscar.devmobile.R.string.error_login_invalid_credentials
+                    else -> br.dc.ufscar.devmobile.R.string.error_login_generic
                 }
-                _authState.value = AuthState.Error(msg)
+                _authState.value = AuthState.Error(messageResId = resId)
             } catch (e: Exception) {
-                _authState.value = AuthState.Error("Sem conexão com o servidor.")
+                _authState.value = AuthState.Error(messageResId = br.dc.ufscar.devmobile.R.string.error_no_connection)
             }
         }
     }
@@ -61,7 +61,7 @@ class AuthViewModel(private val userDao: UserDao) : ViewModel() {
                 saveUserLocally(user, senha)
                 _authState.value = AuthState.Success(user)
             } catch (e: Exception) {
-                _authState.value = AuthState.Error("Erro ao criar conta. Tente novamente.")
+                _authState.value = AuthState.Error(messageResId = br.dc.ufscar.devmobile.R.string.error_register_generic)
             }
         }
     }
