@@ -22,10 +22,12 @@ import br.dc.ufscar.devmobile.R
 import br.dc.ufscar.devmobile.composables.searchScreen.AppSearchBar
 import br.dc.ufscar.devmobile.composables.searchScreen.SearchResultCard
 import br.dc.ufscar.devmobile.ui.theme.DarkRed
+import br.dc.ufscar.devmobile.repositories.StoreRepository
 import br.dc.ufscar.devmobile.viewmodels.SearchResultViewModel
 
 @Composable
 fun SearchResultScreen(
+    storeRepository: StoreRepository,
     hasPermission : Boolean,
     category : String? = null,
     price : Float? = null,
@@ -35,7 +37,7 @@ fun SearchResultScreen(
     minRating : Int? = null,
     onRestaurantClick : (Int) -> Unit = {},
     onFilterClick : (String?) -> Unit,
-    viewModel : SearchResultViewModel = viewModel()
+    viewModel : SearchResultViewModel = viewModel(factory = SearchResultViewModel.Factory(storeRepository))
 ) {
     val context = LocalContext.current
 

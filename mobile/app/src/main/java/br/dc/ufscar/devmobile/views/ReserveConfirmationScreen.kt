@@ -121,8 +121,3 @@ fun ReserveConfirmationScreen(onBackToHomeClick: () -> Unit = {}) {
     }
 }
 
-@Preview(showBackground = true, showSystemUi = true)
-@Composable
-fun ReservationConfirmationScreenPreview() {
-    ReserveConfirmationScreen()
-}

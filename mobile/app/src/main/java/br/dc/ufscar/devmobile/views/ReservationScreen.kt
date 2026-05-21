@@ -25,6 +25,8 @@ import br.dc.ufscar.devmobile.R
 import br.dc.ufscar.devmobile.ui.theme.DarkRed
 import br.dc.ufscar.devmobile.ui.theme.GoldPrimary
 import br.dc.ufscar.devmobile.ui.theme.LightGray
+import br.dc.ufscar.devmobile.repositories.ReservationRepository
+import br.dc.ufscar.devmobile.repositories.StoreRepository
 import br.dc.ufscar.devmobile.viewmodels.ReservationUiState
 import br.dc.ufscar.devmobile.viewmodels.ReservationViewModel
 import java.text.SimpleDateFormat
@@ -35,10 +37,14 @@ import java.util.Locale
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ReservationScreen(
+    storeRepository: StoreRepository,
+    reservationRepository: ReservationRepository,
     storeId: Int = 1,
     onBackClick: () -> Unit = {},
     onConfirmClick: () -> Unit = {},
-    viewModel: ReservationViewModel = viewModel(factory = ReservationViewModel.Factory(storeId))
+    viewModel: ReservationViewModel = viewModel(
+        factory = ReservationViewModel.Factory(storeId, storeRepository, reservationRepository)
+    )
 ) {
     val store by viewModel.store.collectAsState()
     val uiState by viewModel.uiState.collectAsState()
@@ -274,8 +280,3 @@ fun DropdownSelector(text: String, onClick: () -> Unit) {
     }
 }
 
-@Preview(showBackground = true, showSystemUi = true)
-@Composable
-fun ReservationScreenPreview() {
-    ReservationScreen()
-}

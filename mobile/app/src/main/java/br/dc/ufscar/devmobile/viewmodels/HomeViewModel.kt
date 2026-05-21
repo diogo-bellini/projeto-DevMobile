@@ -2,19 +2,19 @@ package br.dc.ufscar.devmobile.viewmodels
 
 import android.content.Context
 import android.location.Geocoder
-import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import br.dc.ufscar.devmobile.R
 import br.dc.ufscar.devmobile.configs.LocationService
-import br.dc.ufscar.devmobile.network.RetrofitClient
 import br.dc.ufscar.devmobile.network.Store
+import br.dc.ufscar.devmobile.repositories.StoreRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import java.util.Locale
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel(private val storeRepository: StoreRepository) : ViewModel() {
     private val _stores = MutableStateFlow<List<Store>>(emptyList())
     val stores: StateFlow<List<Store>> = _stores
 
@@ -79,7 +79,7 @@ class HomeViewModel : ViewModel() {
             _isLoading.value = true
             _error.value = null
             _errorRes.value = null
-            runCatching { RetrofitClient.storeApi.getStores() }
+            runCatching { storeRepository.getStores() }
                 .onSuccess {
                     _stores.value = it
                     _isLoading.value = false
@@ -91,6 +91,13 @@ class HomeViewModel : ViewModel() {
                     }
                     _isLoading.value = false
                 }
+        }
+    }
+
+    class Factory(private val storeRepository: StoreRepository) : ViewModelProvider.Factory {
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
+            @Suppress("UNCHECKED_CAST")
+            return HomeViewModel(storeRepository) as T
         }
     }
 }
