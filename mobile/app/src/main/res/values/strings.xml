@@ -2,7 +2,7 @@
     <string name="app_name">UPeek</string>
 
     <!-- Login -->
-    <string name="login_placeholder">Email ou CPF</string>
+    <string name="login_placeholder">Email</string>
     <string name="password_placeholder">Senha</string>
     <string name="enter_button">ENTRAR</string>
     <string name="forgot_password">Esqueci minha senha</string>
