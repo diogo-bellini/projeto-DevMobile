@@ -77,10 +77,9 @@ class AuthViewModel(private val userDao: UserDao) : ViewModel() {
                 birthdate = birthdate,
                 password = password
             )
-            val existing = userDao.getById(user.id)
-            if (existing != null) userDao.update(user) else userDao.insert(user)
+            userDao.deleteAll()
+            userDao.insert(user)
         } catch (_: Exception) {
-            // salvar localmente não deve bloquear o fluxo de autenticação
         }
     }
 

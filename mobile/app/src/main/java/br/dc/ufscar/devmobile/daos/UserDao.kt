@@ -6,6 +6,7 @@ import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
 import br.dc.ufscar.devmobile.entities.User
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface UserDao {
@@ -13,7 +14,7 @@ interface UserDao {
     suspend fun getById(id: Int): User?
 
     @Query("SELECT * FROM User LIMIT 1")
-    suspend fun getCurrent(): User?
+    fun getCurrent(): Flow<User?>
 
     @Insert
     suspend fun insert(user: User)

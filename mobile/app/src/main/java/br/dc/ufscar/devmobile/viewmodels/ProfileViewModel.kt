@@ -21,13 +21,14 @@ class ProfileViewModel(private val userDao: UserDao) : ViewModel() {
     val state: StateFlow<ProfileState> = _state
 
     init {
-        loadUser()
+        observeUser()
     }
 
-    private fun loadUser() {
+    private fun observeUser() {
         viewModelScope.launch {
-            val user = userDao.getCurrent()
-            _state.value = if (user != null) ProfileState.Success(user) else ProfileState.Empty
+            userDao.getCurrent().collect { user ->
+                _state.value = if (user != null) ProfileState.Success(user) else ProfileState.Empty
+            }
         }
     }
 
