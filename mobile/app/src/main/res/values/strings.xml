@@ -7,6 +7,13 @@
     <string name="enter_button">ENTRAR</string>
     <string name="forgot_password">Esqueci minha senha</string>
     <string name="dont_have_account_register">Não tem conta? Registre-se aqui.</string>
+    <string name="error_inform_email">Informe seu email.</string>
+    <string name="error_invalid_email">Email inválido.</string>
+    <string name="error_inform_password">Informe sua senha.</string>
+    <string name="error_password_too_short">A senha deve ter no mínimo 6 caracteres.</string>
+    <string name="error_login_invalid_credentials">Email ou senha incorretos.</string>
+    <string name="error_login_generic">Erro ao fazer login. Tente novamente.</string>
+    <string name="error_no_connection">Sem conexão com o servidor.</string>
 
     <!-- Register -->
     <string name="full_name_placeholder">Nome Completo</string>
@@ -17,6 +24,14 @@
     <string name="terms_agreement">Li e concordo com os termos de uso do sistema.</string>
     <string name="finalize_register_button">FINALIZAR REGISTRO</string>
     <string name="already_have_account_login">Já tem uma conta? Faça login aqui.</string>
+    <string name="error_inform_full_name">Informe seu nome completo.</string>
+    <string name="error_inform_cpf">Informe seu CPF.</string>
+    <string name="error_cpf_invalid">CPF deve ter 11 dígitos.</string>
+    <string name="error_select_birth_date">Selecione sua data de nascimento.</string>
+    <string name="error_confirm_password">Confirme sua senha.</string>
+    <string name="error_passwords_mismatch">As senhas não coincidem.</string>
+    <string name="error_accept_terms">Você precisa aceitar os termos.</string>
+    <string name="error_register_generic">Erro ao criar conta. Tente novamente.</string>
 
     <!-- Bottom Navigation -->
     <string name="nav_home">Início</string>
@@ -58,14 +73,27 @@
     <string name="filter_reviews_range">Quantidade de avaliações: %1$d - %2$d</string>
     <string name="filter_apply_button">Aplicar Filtros</string>
 
+    <!-- Profile -->
+    <string name="profile_title">Dados Pessoais</string>
+    <string name="profile_no_user">Nenhum usuário encontrado.</string>
+    <string name="logout_button">Sair da conta</string>
+    <string name="user_info_section">Informações do usuário</string>
+    <string name="full_name_label">Nome completo</string>
+    <string name="cpf_label">CPF</string>
+    <string name="email_label">Email</string>
+    <string name="birth_date_label">Data de nascimento</string>
+
     <!-- Common -->
     <string name="select_placeholder">Selecione</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancelar</string>
 
     <!-- Accessibility -->
     <string name="cd_back_button">Voltar</string>
     <string name="cd_banner">Banner</string>
     <string name="cd_confirmed">Confirmado</string>
     <string name="cd_select">Selecionar</string>
+    <string name="cd_logo">Logo UPeek</string>
     <string name="cd_logo_placeholder">LOGO</string>
 
     <!-- RestaurantHeader -->
@@ -99,4 +127,9 @@
     <string name="confirmation_subtitle">Sua reserva já foi agendada\nno restaurante</string>
     <string name="confirmation_back_button">Voltar a página principal</string>
     <string name="confirmation_info_text">Para visualizar ou editar sua reserva, \nacesse a seção \'Reservas\' no menu \nprincipal.</string>
+
+    <!-- Home -->
+    <string name="home_suggested_title">Sugeridos</string>
+    <string name="home_latest_title">Últimos restaurantes</string>
+    <string name="home_error_loading">Erro ao carregar lojas:\n%s</string>
 </resources>

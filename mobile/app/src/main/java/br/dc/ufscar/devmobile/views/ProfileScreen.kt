@@ -28,6 +28,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.res.stringResource
+import br.dc.ufscar.devmobile.R
 import br.dc.ufscar.devmobile.composables.AppTopBar
 import br.dc.ufscar.devmobile.entities.User
 import br.dc.ufscar.devmobile.ui.theme.DarkRed
@@ -59,7 +61,7 @@ fun ProfileScreen(
 
     Scaffold(
         topBar = {
-            AppTopBar(title = "Dados Pessoais", onBackClick = onBackClick)
+            AppTopBar(title = stringResource(R.string.profile_title), onBackClick = onBackClick)
         }
     ) { innerPadding ->
         when (val s = state) {
@@ -82,7 +84,7 @@ fun ProfileScreen(
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
-                        text = "Nenhum usuário encontrado.",
+                        text = stringResource(R.string.profile_no_user),
                         color = Color.Gray,
                         fontSize = 16.sp
                     )
@@ -129,7 +131,7 @@ private fun ProfileContent(
                 .height(52.dp)
         ) {
             Text(
-                text = "Sair da conta",
+                text = stringResource(R.string.logout_button),
                 color = Color.White,
                 fontWeight = FontWeight.Bold,
                 fontSize = 16.sp
@@ -152,21 +154,21 @@ private fun UserInfoCard(user: User) {
                 .padding(vertical = 12.dp, horizontal = 16.dp)
         ) {
             Text(
-                text = "Informações do usuário",
+                text = stringResource(R.string.user_info_section),
                 color = Color.White,
                 fontWeight = FontWeight.Bold,
                 fontSize = 15.sp
             )
         }
 
-        InfoRow(label = "Nome completo", value = user.fullName)
+        InfoRow(label = stringResource(R.string.full_name_label), value = user.fullName)
         HorizontalDivider(color = Color(0xFFEEEEEE))
-        InfoRow(label = "CPF", value = formatCpf(user.cpf))
+        InfoRow(label = stringResource(R.string.cpf_label), value = formatCpf(user.cpf))
         HorizontalDivider(color = Color(0xFFEEEEEE))
-        InfoRow(label = "Email", value = user.email)
+        InfoRow(label = stringResource(R.string.email_label), value = user.email)
         HorizontalDivider(color = Color(0xFFEEEEEE))
         InfoRow(
-            label = "Data de nascimento",
+            label = stringResource(R.string.birth_date_label),
             value = user.birthdate.format(dateFormatter),
             isLast = true
         )

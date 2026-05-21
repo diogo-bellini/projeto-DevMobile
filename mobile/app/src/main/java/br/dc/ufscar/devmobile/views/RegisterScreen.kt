@@ -158,12 +158,12 @@ private fun DatePickerField(
                     }
                     showDialog = false
                 }) {
-                    Text("OK", color = GoldPrimary)
+                    Text(stringResource(R.string.ok), color = GoldPrimary)
                 }
             },
             dismissButton = {
                 TextButton(onClick = { showDialog = false }) {
-                    Text("Cancelar", color = GoldPrimary)
+                    Text(stringResource(R.string.cancel), color = GoldPrimary)
                 }
             }
         ) {
@@ -186,13 +186,13 @@ fun RegisterScreen(
     var confirmPassword by remember { mutableStateOf("") }
     var termsAccepted by remember { mutableStateOf(false) }
 
-    var fullNameError by remember { mutableStateOf<String?>(null) }
-    var emailError by remember { mutableStateOf<String?>(null) }
-    var cpfError by remember { mutableStateOf<String?>(null) }
-    var birthDateError by remember { mutableStateOf<String?>(null) }
-    var passwordError by remember { mutableStateOf<String?>(null) }
-    var confirmPasswordError by remember { mutableStateOf<String?>(null) }
-    var termsError by remember { mutableStateOf<String?>(null) }
+    var fullNameError by remember { mutableStateOf<Int?>(null) }
+    var emailError by remember { mutableStateOf<Int?>(null) }
+    var cpfError by remember { mutableStateOf<Int?>(null) }
+    var birthDateError by remember { mutableStateOf<Int?>(null) }
+    var passwordError by remember { mutableStateOf<Int?>(null) }
+    var confirmPasswordError by remember { mutableStateOf<Int?>(null) }
+    var termsError by remember { mutableStateOf<Int?>(null) }
 
     val authState by viewModel.authState.collectAsState()
     val isLoading = authState is AuthState.Loading
@@ -208,58 +208,58 @@ fun RegisterScreen(
         var valid = true
 
         if (fullName.isBlank()) {
-            fullNameError = "Informe seu nome completo."
+            fullNameError = R.string.error_inform_full_name
             valid = false
         } else {
             fullNameError = null
         }
 
         if (email.isBlank()) {
-            emailError = "Informe seu email."
+            emailError = R.string.error_inform_email
             valid = false
         } else if (!emailRegex.matches(email)) {
-            emailError = "Email inválido."
+            emailError = R.string.error_invalid_email
             valid = false
         } else {
             emailError = null
         }
 
         if (cpf.length != 11) {
-            cpfError = if (cpf.isEmpty()) "Informe seu CPF." else "CPF deve ter 11 dígitos."
+            cpfError = if (cpf.isEmpty()) R.string.error_inform_cpf else R.string.error_cpf_invalid
             valid = false
         } else {
             cpfError = null
         }
 
         if (birthDate.isBlank()) {
-            birthDateError = "Selecione sua data de nascimento."
+            birthDateError = R.string.error_select_birth_date
             valid = false
         } else {
             birthDateError = null
         }
 
         if (password.isBlank()) {
-            passwordError = "Informe uma senha."
+            passwordError = R.string.error_inform_password
             valid = false
         } else if (password.length < 6) {
-            passwordError = "A senha deve ter no mínimo 6 caracteres."
+            passwordError = R.string.error_password_too_short
             valid = false
         } else {
             passwordError = null
         }
 
         if (confirmPassword.isBlank()) {
-            confirmPasswordError = "Confirme sua senha."
+            confirmPasswordError = R.string.error_confirm_password
             valid = false
         } else if (confirmPassword != password) {
-            confirmPasswordError = "As senhas não coincidem."
+            confirmPasswordError = R.string.error_passwords_mismatch
             valid = false
         } else {
             confirmPasswordError = null
         }
 
         if (!termsAccepted) {
-            termsError = "Você precisa aceitar os termos."
+            termsError = R.string.error_accept_terms
             valid = false
         } else {
             termsError = null
@@ -285,7 +285,7 @@ fun RegisterScreen(
 
             Image(
                 painter = painterResource(id = R.drawable.upeek_logo),
-                contentDescription = "Logo UPeek",
+                contentDescription = stringResource(R.string.cd_logo),
                 modifier = Modifier
                     .width(200.dp)
                     .padding(bottom = 40.dp)
@@ -297,7 +297,7 @@ fun RegisterScreen(
                 placeholder = stringResource(R.string.full_name_placeholder),
                 isError = fullNameError != null
             )
-            if (fullNameError != null) ErrorText(fullNameError!!)
+            fullNameError?.let { ErrorText(it) }
 
             Spacer(modifier = Modifier.height(16.dp))
 
@@ -308,7 +308,7 @@ fun RegisterScreen(
                 keyboardType = KeyboardType.Email,
                 isError = emailError != null
             )
-            if (emailError != null) ErrorText(emailError!!)
+            emailError?.let { ErrorText(it) }
 
             Spacer(modifier = Modifier.height(16.dp))
 
@@ -324,7 +324,7 @@ fun RegisterScreen(
                 visualTransformation = CpfVisualTransformation(),
                 isError = cpfError != null
             )
-            if (cpfError != null) ErrorText(cpfError!!)
+            cpfError?.let { ErrorText(it) }
 
             Spacer(modifier = Modifier.height(16.dp))
 
@@ -334,7 +334,7 @@ fun RegisterScreen(
                 onDateSelected = { birthDate = it; birthDateError = null },
                 isError = birthDateError != null
             )
-            if (birthDateError != null) ErrorText(birthDateError!!)
+            birthDateError?.let { ErrorText(it) }
 
             Spacer(modifier = Modifier.height(16.dp))
 
@@ -345,7 +345,7 @@ fun RegisterScreen(
                 isPassword = true,
                 isError = passwordError != null
             )
-            if (passwordError != null) ErrorText(passwordError!!)
+            passwordError?.let { ErrorText(it) }
 
             Spacer(modifier = Modifier.height(16.dp))
 
@@ -356,7 +356,7 @@ fun RegisterScreen(
                 isPassword = true,
                 isError = confirmPasswordError != null
             )
-            if (confirmPasswordError != null) ErrorText(confirmPasswordError!!)
+            confirmPasswordError?.let { ErrorText(it) }
 
             Spacer(modifier = Modifier.height(24.dp))
 
@@ -381,17 +381,21 @@ fun RegisterScreen(
                     modifier = Modifier.padding(start = 8.dp)
                 )
             }
-            if (termsError != null) ErrorText(termsError!!)
+            termsError?.let { ErrorText(it) }
 
             if (authState is AuthState.Error) {
-                Spacer(modifier = Modifier.height(8.dp))
-                Text(
-                    text = (authState as AuthState.Error).message,
-                    color = Color(0xFFFFCDD2),
-                    fontSize = 13.sp,
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier.fillMaxWidth()
-                )
+                val error = authState as AuthState.Error
+                val message = error.messageResId?.let { stringResource(it) } ?: error.message ?: ""
+                if (message.isNotEmpty()) {
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Text(
+                        text = message,
+                        color = Color(0xFFFFCDD2),
+                        fontSize = 13.sp,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                }
             }
 
             Spacer(modifier = Modifier.height(32.dp))
@@ -448,9 +452,9 @@ fun RegisterScreen(
 }
 
 @Composable
-private fun ErrorText(message: String) {
+private fun ErrorText(messageResId: Int) {
     Text(
-        text = message,
+        text = stringResource(messageResId),
         color = Color(0xFFFFCDD2),
         fontSize = 12.sp,
         modifier = Modifier
