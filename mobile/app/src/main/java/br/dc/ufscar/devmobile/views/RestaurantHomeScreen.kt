@@ -150,8 +150,3 @@ fun RestaurantHomeScreen(
     }
 }
 
-@Preview(showBackground = true, showSystemUi = true)
-@Composable
-fun RestaurantHomeScreenPreview() {
-    RestaurantHomeScreen()
-}

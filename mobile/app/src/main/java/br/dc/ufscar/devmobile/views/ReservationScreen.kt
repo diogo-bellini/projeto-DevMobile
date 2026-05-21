@@ -280,8 +280,3 @@ fun DropdownSelector(text: String, onClick: () -> Unit) {
     }
 }
 
-@Preview(showBackground = true, showSystemUi = true)
-@Composable
-fun ReservationScreenPreview() {
-    ReservationScreen()
-}
