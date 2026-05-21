@@ -7,5 +7,7 @@ data class SearchResultDto(
     val longitude : Float,
     val avgPrice : Float,
     val id : Int,
+    val rating : Float,
+    val reviews : Int,
     var distance: Float? = null
 )

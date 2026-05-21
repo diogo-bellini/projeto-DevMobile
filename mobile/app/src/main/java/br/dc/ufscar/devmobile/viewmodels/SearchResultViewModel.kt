@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableDoubleStateOf
 import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -15,18 +16,23 @@ import kotlinx.coroutines.launch
 
 class SearchResultViewModel : ViewModel() {
     val resultsSearchBar = mutableStateListOf<RestaurantSearchItemDto>()
-    val resultCategory = mutableStateListOf<SearchResultDto>()
+    val otherResults = mutableStateListOf<SearchResultDto>()
 
+    var isLoading by mutableStateOf(false)
     var userLatitude by mutableDoubleStateOf(0.0)
     var userLongitude by mutableDoubleStateOf(0.0)
 
-    fun getLocation(context : Context) {
+    fun getLocation(context : Context, onFinished : () -> Unit = {}) {
+        isLoading = true
         LocationService.getCurrentLocation(
             context = context,
             onSuccess = { lat, long ->
                 setLocation(lat, long)
+                onFinished()
             },
-            onError = {}
+            onError = {
+                onFinished()
+            }
         )
     }
 
@@ -61,30 +67,89 @@ class SearchResultViewModel : ViewModel() {
     }
 
     fun searchStoresByCategory(category : String){
+        isLoading = true
         viewModelScope.launch {
             try {
                 val stores = RetrofitClient.storeApi.getStoresByCategory(category)
-                resultCategory.clear()
-                val results = stores.map { store ->
-                    SearchResultDto(
-                        logo = store.logo,
-                        namepiece = store.namepiece,
-                        latitude = store.latitude,
-                        longitude = store.longitude,
-                        avgPrice = store.avgPrice,
-                        id = store.id
-                    )
-                }
+                otherResults.clear()
 
-                results.forEach { store ->
-                    store.distance = calculateDistance(
-                        userLatitude, userLongitude,
-                        store.latitude.toDouble(), store.longitude.toDouble()
+                val results = stores.map { store ->
+                    store.copy(
+                        distance = calculateDistance(
+                            userLatitude, userLongitude,
+                            store.latitude.toDouble(), store.longitude.toDouble()
+                        )
                     )
                 }
-                resultCategory.addAll(results)
+                otherResults.addAll(results)
             } catch (e: Exception){
-                resultCategory.clear()
+                otherResults.clear()
+            } finally {
+                isLoading = false
+            }
+        }
+    }
+
+    fun searchStoresByFilters(category: String?, price : Float, distance : Float, minReviews : Int, maxReviews : Int, minRating : Int){
+        isLoading = true
+        viewModelScope.launch {
+            if (category != null) {
+                try {
+                    val stores = RetrofitClient.storeApi.getStoresByFiltersWithCategory(
+                        maxPrice = price,
+                        minReviews = minReviews,
+                        maxReviews = maxReviews,
+                        minRating = minRating,
+                        category = category
+                    )
+                    otherResults.clear()
+
+                    val filteredResults = stores.mapNotNull { store ->
+                        val calculatedDist = calculateDistance(
+                            userLatitude, userLongitude,
+                            store.latitude.toDouble(), store.longitude.toDouble()
+                        )
+
+                        if (calculatedDist <= distance) {
+                            store.copy(distance = calculatedDist)
+                        } else {
+                            null
+                        }
+                    }
+                    otherResults.addAll(filteredResults)
+                } catch (e : Exception){
+                    otherResults.clear()
+                } finally {
+                    isLoading = false
+                }
+            } else {
+                try {
+                    val stores = RetrofitClient.storeApi.getStoresByFilters(
+                        maxPrice = price,
+                        minReviews = minReviews,
+                        maxReviews = maxReviews,
+                        minRating = minRating,
+                    )
+                    otherResults.clear()
+
+                    val filteredResults = stores.mapNotNull { store ->
+                        val calculatedDist = calculateDistance(
+                            userLatitude, userLongitude,
+                            store.latitude.toDouble(), store.longitude.toDouble()
+                        )
+
+                        if (calculatedDist <= distance) {
+                            store.copy(distance = calculatedDist)
+                        } else {
+                            null
+                        }
+                    }
+                    otherResults.addAll(filteredResults)
+                } catch (e : Exception){
+                    otherResults.clear()
+                } finally {
+                    isLoading = false
+                }
             }
         }
     }

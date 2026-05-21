@@ -29,6 +29,8 @@
     <string name="searchbar_label">🔍 Buscar</string>
     <string name="search_result_distance">Distância: %.2f Km</string>
     <string name="search_result_avg_price">Preço Médio: R$ %.2f</string>
+    <string name="search_result_rating">★ %.1f</string>
+    <string name="search_result_reviews">(%d)</string>
 
     <!-- All Categories -->
     <string name="pizza_category">Pizza</string>
