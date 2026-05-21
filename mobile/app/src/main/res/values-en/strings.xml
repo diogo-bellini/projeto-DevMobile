@@ -1,6 +1,23 @@
 <resources>
     <string name="app_name">UPeek</string>
 
+    <!-- Login -->
+    <string name="login_placeholder">Email or CPF</string>
+    <string name="password_placeholder">Password</string>
+    <string name="enter_button">ENTER</string>
+    <string name="forgot_password">Forgot my password</string>
+    <string name="dont_have_account_register">Don\'t have an account? Register here.</string>
+
+    <!-- Register -->
+    <string name="full_name_placeholder">Full Name</string>
+    <string name="email_placeholder">Email</string>
+    <string name="cpf_placeholder">CPF</string>
+    <string name="birth_date_placeholder">Birth Date</string>
+    <string name="confirm_password_placeholder">Confirm Password</string>
+    <string name="terms_agreement">I have read and agree to the system\'s terms of use.</string>
+    <string name="finalize_register_button">FINALIZE REGISTRATION</string>
+    <string name="already_have_account_login">Already have an account? Log in here.</string>
+
     <!-- Bottom Navigation -->
     <string name="nav_home">Home</string>
     <string name="nav_search">Search</string>

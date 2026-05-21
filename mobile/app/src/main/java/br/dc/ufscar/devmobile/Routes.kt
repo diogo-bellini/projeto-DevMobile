@@ -30,8 +30,8 @@ object Routes {
         minReviews?.let { params.add("minReviews=$it") }
         maxReviews?.let { params.add("maxReviews=$it") }
         minRating?.let { params.add("minRating=$it") }
-        
-        return if (params.isEmpty()){
+
+        return if (params.isEmpty()) {
             "searchResult"
         } else {
             "searchResult?${params.joinToString("&")}"

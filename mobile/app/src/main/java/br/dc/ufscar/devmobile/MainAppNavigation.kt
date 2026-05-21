@@ -12,6 +12,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -21,11 +22,25 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import br.dc.ufscar.devmobile.composables.AppBottomNavigation
 import br.dc.ufscar.devmobile.entities.bottomNavItems
+import androidx.lifecycle.viewmodel.compose.viewModel
+import br.dc.ufscar.devmobile.configs.UPeekDatabase
+import br.dc.ufscar.devmobile.viewmodels.AuthViewModel
+import br.dc.ufscar.devmobile.viewmodels.AuthViewModelFactory
+import br.dc.ufscar.devmobile.viewmodels.ProfileViewModel
+import br.dc.ufscar.devmobile.viewmodels.ProfileViewModelFactory
 import br.dc.ufscar.devmobile.views.*
 
 @Composable
 fun MainAppNavigation() {
     val navController = rememberNavController()
+    val context = LocalContext.current
+    val db = UPeekDatabase.getInstance(context)
+    val authViewModel: AuthViewModel = viewModel(
+        factory = AuthViewModelFactory(db.userDao())
+    )
+    val profileViewModel: ProfileViewModel = viewModel(
+        factory = ProfileViewModelFactory(db.userDao())
+    )
 
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
@@ -69,11 +84,35 @@ fun MainAppNavigation() {
     ) { paddingValues ->
         NavHost(
             navController = navController,
-            startDestination = Routes.home,
+            startDestination = Routes.login,
             modifier = Modifier.padding(paddingValues)
         ) {
-            composable(Routes.register) { RegisterScreen() }
-            composable(Routes.login) { LoginScreen() }
+            composable(Routes.register) {
+                RegisterScreen(
+                    viewModel = authViewModel,
+                    onRegisterSuccess = {
+                        navController.navigate(Routes.home) {
+                            popUpTo(0) { inclusive = true }
+                        }
+                    },
+                    onLoginClick = {
+                        navController.popBackStack()
+                    }
+                )
+            }
+            composable(Routes.login) {
+                LoginScreen(
+                    viewModel = authViewModel,
+                    onLoginSuccess = {
+                        navController.navigate(Routes.home) {
+                            popUpTo(Routes.login) { inclusive = true }
+                        }
+                    },
+                    onRegisterClick = {
+                        navController.navigate(Routes.register)
+                    }
+                )
+            }
             composable(Routes.home) {
                 HomeScreen(onStoreClick = { storeId ->
                     navController.navigate(Routes.restaurantHome(storeId))
@@ -131,7 +170,6 @@ fun MainAppNavigation() {
                 val minReviews = backStackEntry.arguments?.getInt("minReviews")?.takeIf { it != -1 }
                 val maxReviews = backStackEntry.arguments?.getInt("maxReviews")?.takeIf { it != -1 }
                 val minRating = backStackEntry.arguments?.getInt("minRating")?.takeIf { it != -1 }
-
                 SearchResultScreen(
                     hasPermission = hasPermission,
                     category = category,
@@ -144,7 +182,7 @@ fun MainAppNavigation() {
                         navController.navigate(Routes.restaurantHome(storeId = storeId))
                     },
                     onFilterClick = {
-                        navController.navigate((Routes.filters(category = category)))
+                        navController.navigate(Routes.filters(category = category))
                     }
                 )
             }
@@ -185,6 +223,17 @@ fun MainAppNavigation() {
                     onBackToHomeClick = {
                         navController.navigate(Routes.home) {
                             popUpTo(Routes.home) { inclusive = true }
+                        }
+                    }
+                )
+            }
+            composable(Routes.profile) {
+                ProfileScreen(
+                    viewModel = profileViewModel,
+                    onBackClick = { navController.navigateUp() },
+                    onLogout = {
+                        navController.navigate(Routes.login) {
+                            popUpTo(0) { inclusive = true }
                         }
                     }
                 )

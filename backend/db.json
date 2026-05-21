@@ -71,8 +71,8 @@
           "hours": "11h - 22h"
         }
       ],
-      "latitude": -21.983879,
-      "longitude": -47.881406
+      "latitude": -22.0156,
+      "longitude": -47.8913
     },
     {
       "id": 2,
@@ -1094,6 +1094,46 @@
       "email": "josemaia.comp@gmail.com",
       "senha": "Senha123",
       "id": 1
+    },
+    {
+      "cpf": "12345678910",
+      "dataNascimento": "2003-09-16",
+      "email": "enzoyhirotani@gmail.com",
+      "nomeCompleto": "enzo birulu",
+      "senha": "123123",
+      "id": 2
+    },
+    {
+      "cpf": "12345678910",
+      "dataNascimento": "2000-01-01",
+      "email": "sapo123@gmail.com",
+      "nomeCompleto": "sapo",
+      "senha": "123123",
+      "id": 3
+    },
+    {
+      "cpf": "11111111111",
+      "dataNascimento": "2001-01-01",
+      "email": "e@g.com",
+      "nomeCompleto": "egege",
+      "senha": "123123",
+      "id": 4
+    },
+    {
+      "cpf": "12312312312",
+      "dataNascimento": "1999-01-01",
+      "email": "e@e.com",
+      "nomeCompleto": "eee",
+      "senha": "123123",
+      "id": 5
+    },
+    {
+      "cpf": "21321321321",
+      "dataNascimento": "2002-01-01",
+      "email": "j@g.com",
+      "nomeCompleto": "jose",
+      "senha": "123123",
+      "id": 6
     }
   ],
   "menuItems": [

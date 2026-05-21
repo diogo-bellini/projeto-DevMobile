@@ -24,7 +24,7 @@ interface StoreApiService {
 
     @GET("stores")
     suspend fun getStoresBySubString(@Query("namepiece_like") substring : String) : List<Store>
-    
+
     @GET("stores")
     suspend fun getStoresByFilters(
         @Query("avgPrice_lte") maxPrice: Float,
@@ -41,4 +41,10 @@ interface StoreApiService {
         @Query("reviews_lte") maxReviews: Int,
         @Query("rating_gte") minRating: Int,
     ) : List<SearchResultDto>
+
+    @POST("login")
+    suspend fun login(@Body request: LoginRequest): UserResponse
+
+    @POST("users")
+    suspend fun register(@Body request: RegisterRequest): UserResponse
 }
