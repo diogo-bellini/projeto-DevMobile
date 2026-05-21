@@ -43,7 +43,6 @@ fun OpenStreetMapComponent(
             val marker = Marker(this)
             marker.position = point
             marker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
-            marker.title = title
 
             this.overlays.add(marker)
         }
@@ -66,6 +65,12 @@ fun OpenStreetMapComponent(
 
     AndroidView(
         factory = { mapView },
+        update = { map ->
+            map.overlays.filterIsInstance<Marker>().firstOrNull()?.let {
+                it.title = title
+                map.invalidate()
+            }
+        },
         modifier = modifier
     )
 }

@@ -123,6 +123,11 @@
     <string name="reservation_label_table">Mesa:</string>
     <string name="reservation_select_date">Selecione a data</string>
     <string name="reservation_confirm_button">Confirmar Reserva</string>
+    <string name="reservation_table_number">Mesa %d</string>
+    <plurals name="reservation_people_count">
+        <item quantity="one">%d pessoa</item>
+        <item quantity="other">%d pessoas</item>
+    </plurals>
 
     <!-- ReserveConfirmationScreen -->
     <string name="confirmation_title">Reserva\nConcluída</string>
