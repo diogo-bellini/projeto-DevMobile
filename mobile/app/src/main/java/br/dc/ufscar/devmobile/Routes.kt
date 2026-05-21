@@ -43,6 +43,7 @@ object Routes {
     fun restaurantMenu(storeId: Int) = "restaurantMenu/$storeId"
     var reserve = "reserve/{storeId}"
     fun reserve(storeId: Int) = "reserve/$storeId"
+    var reservations = "reservations"
     var reserveConfirmation = "reserveConfirmation"
     var profile = "profile"
 }
