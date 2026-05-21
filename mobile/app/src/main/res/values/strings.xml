@@ -144,4 +144,5 @@
     <string name="home_location_not_found">Endereço não encontrado</string>
     <string name="home_location_error">Erro ao obter endereço</string>
     <string name="home_location_unknown">Endereço desconhecido</string>
+    <string name="error_location_getting">Erro ao obter localização</string>
 </resources>

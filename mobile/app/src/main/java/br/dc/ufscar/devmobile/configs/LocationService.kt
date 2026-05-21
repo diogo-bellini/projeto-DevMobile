@@ -1,6 +1,7 @@
 package br.dc.ufscar.devmobile.configs
 
 import android.content.Context
+import br.dc.ufscar.devmobile.R
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.Priority
 import com.google.android.gms.tasks.CancellationTokenSource
@@ -26,12 +27,12 @@ object LocationService{
                     if (lastLoc != null) {
                         onSuccess(lastLoc.latitude, lastLoc.longitude)
                     } else {
-                        onError("Localização não disponível")
+                        onError(context.getString(R.string.error_location_unavailable))
                     }
                 }
             }
         }.addOnFailureListener {
-            onError("Erro ao obter localização")
+            onError(context.getString(R.string.error_location_getting))
         }
     }
 }
