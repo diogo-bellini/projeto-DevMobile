@@ -70,11 +70,10 @@ fun SearchScreen(
             fontWeight = FontWeight.Bold,
             modifier = Modifier.padding(vertical = 8.dp)
         )
-        val context = androidx.compose.ui.platform.LocalContext.current
         AppCategorySearch(
             items = categorySearchItems,
             onCategoryClick = { item ->
-                onCategoryClick(context.getString(item.title))
+                onCategoryClick(item.backendName)
             }
         )
     }

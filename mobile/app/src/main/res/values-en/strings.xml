@@ -24,8 +24,43 @@
     <string name="nav_reservations">Reservations</string>
     <string name="nav_profile">Profile</string>
 
+    <!--  SearchScreen -->
+    <string name="category_label">Categories</string>
+    <string name="searchbar_label">🔍 Search</string>
+    <string name="search_result_distance">Distance: %.2f Km</string>
+    <string name="search_result_avg_price">Average Price: R$ %.2f</string>
+    <string name="search_result_rating">★ %.1f</string>
+    <string name="search_result_reviews">(%d)</string>
+
+    <!-- All Categories -->
+    <string name="pizza_category">Pizza</string>
+    <string name="lanches_category">Burgers</string>
+    <string name="japonesa_category">Japanese</string>
+    <string name="chinesa_category">Chinese</string>
+    <string name="brasileira_category">Brazilian</string>
+    <string name="arabe_category">Arabic</string>
+    <string name="mexicana_category">Mexican</string>
+    <string name="vegetariana_category">Vegetarian</string>
+    <string name="vegana_category">Vegan</string>
+    <string name="italiana_category">Italian</string>
+    <string name="hotdog_category">Hot Dog</string>
+    <string name="tailandesa_category">Thai</string>
+    <string name="peixes_category">Seafood</string>
+    <string name="doces_category">Sweets</string>
+    <string name="salgados_category">Savory</string>
+    <string name="salada_category">Salad</string>
+
+    <!--  FilterScreen  -->
+    <string name="filter_title">Filters</string>
+    <string name="filter_min_rating">Minimum rating:</string>
+    <string name="filter_avg_price">Maximum Average price: R$ %.2f</string>
+    <string name="filter_max_distance">Maximum distance: %.0f km</string>
+    <string name="filter_reviews_range">Number of reviews: %1$d - %2$d</string>
+    <string name="filter_apply_button">Apply Filters</string>
+
     <!-- Common -->
     <string name="select_placeholder">Select</string>
+
 
     <!-- Accessibility -->
     <string name="cd_back_button">Back</string>
