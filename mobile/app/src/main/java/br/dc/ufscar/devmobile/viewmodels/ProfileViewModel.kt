@@ -26,8 +26,9 @@ class ProfileViewModel(private val userDao: UserDao) : ViewModel() {
 
     fun loadUser() {
         viewModelScope.launch {
-            val user = userDao.getCurrent()
-            _state.value = if (user != null) ProfileState.Success(user) else ProfileState.Empty
+            userDao.getCurrent().collect { user ->
+                _state.value = if (user != null) ProfileState.Success(user) else ProfileState.Empty
+            }
         }
     }
 
