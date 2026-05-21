@@ -193,6 +193,7 @@ fun MainAppNavigation() {
                 val storeId = backStackEntry.arguments?.getInt("storeId") ?: 1
                 RestaurantHomeScreen(
                     storeId = storeId,
+                    onBackClick = { navController.navigateUp() },
                     onReserveClick = { navController.navigate(Routes.reserve(storeId)) },
                     onMenuClick = { navController.navigate(Routes.restaurantMenu(storeId)) }
                 )

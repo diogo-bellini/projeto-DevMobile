@@ -6,12 +6,17 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -33,6 +38,7 @@ import br.dc.ufscar.devmobile.viewmodels.RestaurantViewModel
 fun RestaurantHomeScreen(
     modifier: Modifier = Modifier,
     storeId: Int = 1,
+    onBackClick: () -> Unit = {},
     onReserveClick: () -> Unit = {},
     onMenuClick: () -> Unit = {},
     viewModel: RestaurantViewModel = viewModel(factory = RestaurantViewModel.Factory(storeId))
@@ -46,13 +52,25 @@ fun RestaurantHomeScreen(
             .background(Color.White)
             .verticalScroll(scrollState)
     ) {
-        RestaurantHeader(
-            name = store?.name ?: "",
-            logoUrl = store?.logo ?: "",
-            rating = store?.rating ?: 0.0,
-            reviews = store?.reviews ?: 0,
-            avgPrice = store?.avgPrice ?: 0.0
-        )
+        Box {
+            RestaurantHeader(
+                name = store?.name ?: "",
+                logoUrl = store?.logo ?: "",
+                rating = store?.rating ?: 0.0,
+                reviews = store?.reviews ?: 0,
+                avgPrice = store?.avgPrice ?: 0.0
+            )
+            IconButton(
+                onClick = onBackClick,
+                modifier = Modifier.align(Alignment.TopStart)
+            ) {
+                Icon(
+                    imageVector = Icons.Default.ArrowBack,
+                    contentDescription = stringResource(R.string.cd_back_button),
+                    tint = Color.White
+                )
+            }
+        }
 
         Spacer(modifier = Modifier.height(10.dp))
 
