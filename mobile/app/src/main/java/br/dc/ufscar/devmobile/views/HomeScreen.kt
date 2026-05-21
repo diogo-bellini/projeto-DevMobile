@@ -5,11 +5,13 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -28,20 +30,29 @@ fun HomeScreen(
     val stores by viewModel.stores.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()
     val error by viewModel.error.collectAsState()
+    val errorRes by viewModel.errorRes.collectAsState()
+    val context = LocalContext.current
+
+    LaunchedEffect(Unit) {
+        viewModel.updateLocation(context)
+    }
 
     Column(modifier = Modifier.fillMaxSize().background(Color.White)) {
-        HomeTopBar()
+        HomeTopBar(viewModel)
 
         Box(modifier = Modifier.fillMaxSize()) {
             when {
                 isLoading -> CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
 
-                error != null -> Text(
-                    text = stringResource(R.string.home_error_loading, error!!),
-                    color = Color.Red,
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier.align(Alignment.Center).padding(24.dp)
-                )
+                error != null || errorRes != null -> {
+                    val message = errorRes?.let { stringResource(it) } ?: error ?: ""
+                    Text(
+                        text = stringResource(R.string.home_error_loading, message),
+                        color = Color.Red,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier.align(Alignment.Center).padding(24.dp)
+                    )
+                }
 
                 else -> LazyColumn(
                     modifier = Modifier.fillMaxSize(),
