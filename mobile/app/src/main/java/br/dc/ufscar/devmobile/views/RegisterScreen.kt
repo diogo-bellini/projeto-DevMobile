@@ -37,6 +37,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -178,21 +179,21 @@ fun RegisterScreen(
     onRegisterSuccess: () -> Unit = {},
     onLoginClick: () -> Unit = {}
 ) {
-    var fullName by remember { mutableStateOf("") }
-    var email by remember { mutableStateOf("") }
-    var cpf by remember { mutableStateOf("") }
-    var birthDate by remember { mutableStateOf("") }
-    var password by remember { mutableStateOf("") }
-    var confirmPassword by remember { mutableStateOf("") }
-    var termsAccepted by remember { mutableStateOf(false) }
+    var fullName by rememberSaveable { mutableStateOf("") }
+    var email by rememberSaveable { mutableStateOf("") }
+    var cpf by rememberSaveable { mutableStateOf("") }
+    var birthDate by rememberSaveable { mutableStateOf("") }
+    var password by rememberSaveable { mutableStateOf("") }
+    var confirmPassword by rememberSaveable { mutableStateOf("") }
+    var termsAccepted by rememberSaveable { mutableStateOf(false) }
 
-    var fullNameError by remember { mutableStateOf<Int?>(null) }
-    var emailError by remember { mutableStateOf<Int?>(null) }
-    var cpfError by remember { mutableStateOf<Int?>(null) }
-    var birthDateError by remember { mutableStateOf<Int?>(null) }
-    var passwordError by remember { mutableStateOf<Int?>(null) }
-    var confirmPasswordError by remember { mutableStateOf<Int?>(null) }
-    var termsError by remember { mutableStateOf<Int?>(null) }
+    var fullNameError by rememberSaveable { mutableStateOf<Int?>(null) }
+    var emailError by rememberSaveable { mutableStateOf<Int?>(null) }
+    var cpfError by rememberSaveable { mutableStateOf<Int?>(null) }
+    var birthDateError by rememberSaveable { mutableStateOf<Int?>(null) }
+    var passwordError by rememberSaveable { mutableStateOf<Int?>(null) }
+    var confirmPasswordError by rememberSaveable { mutableStateOf<Int?>(null) }
+    var termsError by rememberSaveable { mutableStateOf<Int?>(null) }
 
     val authState by viewModel.authState.collectAsState()
     val isLoading = authState is AuthState.Loading
