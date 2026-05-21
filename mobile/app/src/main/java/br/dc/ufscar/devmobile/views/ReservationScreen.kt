@@ -30,13 +30,6 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-private val timeSlots: List<String> = buildList {
-    for (hour in 11..22) {
-        add("%02d:00".format(hour))
-        add("%02d:30".format(hour))
-    }
-    add("23:00")
-}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -50,6 +43,18 @@ fun ReservationScreen(
     val uiState by viewModel.uiState.collectAsState()
     val scrollState = rememberScrollState()
 
+    val timeSlots = remember(store) {
+        val open = store?.openHour ?: 11
+        val close = store?.closeHour ?: 23
+        buildList {
+            for (hour in open until close) {
+                add("%02d:00".format(hour))
+                add("%02d:30".format(hour))
+            }
+            add("%02d:00".format(close))
+        }
+    }
+
     var showDatePicker by remember { mutableStateOf(false) }
     val datePickerState = rememberDatePickerState()
 
@@ -61,7 +66,7 @@ fun ReservationScreen(
         if (uiState is ReservationUiState.Success) onConfirmClick()
     }
 
-    val dataSelecionada = datePickerState.selectedDateMillis?.let { millis ->
+    val dataPicked = datePickerState.selectedDateMillis?.let { millis ->
         SimpleDateFormat("dd MMM, EEE", Locale("pt", "BR"))
             .format(Date(millis))
             .replaceFirstChar { it.uppercase() }
@@ -103,7 +108,7 @@ fun ReservationScreen(
             }
 
             FormRow(label = stringResource(R.string.reservation_label_date)) {
-                DropdownSelector(text = dataSelecionada) { showDatePicker = true }
+                DropdownSelector(text = dataPicked) { showDatePicker = true }
             }
 
             FormRow(label = stringResource(R.string.reservation_label_time)) {
