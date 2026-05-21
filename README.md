@@ -26,16 +26,17 @@ O UPeek permite que usuários encontrem restaurantes próximos, visualizem card�
 
 ### Mobile (Android)
 
-| Tecnologia                    | Uso                           |
-| ----------------------------- | ----------------------------- |
-| Kotlin + Jetpack Compose      | UI declarativa                |
-| Navigation Compose            | Navegação entre telas         |
-| ViewModel + StateFlow         | Gerenciamento de estado       |
-| Room                          | Persistência local do usuário |
-| Retrofit + Gson               | Consumo da API REST           |
-| osmdroid                      | Mapa OpenStreetMap            |
-| Coil                          | Carregamento de imagens       |
-| Google Play Services Location | Geolocalização                |
+| Tecnologia                    | Uso                                        |
+| ----------------------------- | ------------------------------------------ |
+| Kotlin + Jetpack Compose      | UI declarativa                             |
+| Navigation Compose            | Navegação entre telas                      |
+| ViewModel + StateFlow         | Gerenciamento de estado                    |
+| Repository Pattern            | Camada de abstração entre VM e fontes de dados |
+| Room                          | Persistência local do usuário              |
+| Retrofit + Gson               | Consumo da API REST                        |
+| osmdroid                      | Mapa OpenStreetMap                         |
+| Coil                          | Carregamento de imagens                    |
+| Google Play Services Location | Geolocalização                             |
 
 - **minSdk:** 26 (Android 8.0)
 - **targetSdk:** 36
@@ -53,6 +54,11 @@ projeto-DevMobile/
 │   └── app/src/main/java/br/dc/ufscar/devmobile/
 │       ├── views/        # Telas (Composables de nível de rota)
 │       ├── viewmodels/   # ViewModels por tela
+│       ├── repositories/ # Camada de repositório (abstração de dados)
+│       │   ├── StoreRepository.kt
+│       │   ├── MenuRepository.kt
+│       │   ├── ReservationRepository.kt
+│       │   └── UserRepository.kt
 │       ├── composables/  # Componentes reutilizáveis
 │       ├── network/      # DTOs e cliente Retrofit
 │       ├── entities/     # Entidades Room e modelos de domínio
@@ -96,6 +102,30 @@ npm run dev
 | `reserve/{storeId}`        | Formulário de reserva  |
 | `reserveConfirmation`      | Confirmação de reserva |
 | `profile`                  | Perfil do usuário      |
+
+## Arquitetura
+
+O projeto segue uma arquitetura em camadas:
+
+```
+View (Composable)
+    ↓
+ViewModel (StateFlow)
+    ↓
+Repository (abstração de dados)
+    ↓         ↓
+  API       Room DB
+(Retrofit)  (local)
+```
+
+Os repositórios isolam os ViewModels das fontes de dados concretas (API REST e banco local), facilitando testes e troca de implementação:
+
+| Repositório            | Responsabilidade                                          |
+| ---------------------- | --------------------------------------------------------- |
+| `StoreRepository`      | Busca e filtragem de restaurantes via API                 |
+| `MenuRepository`       | Carregamento de itens de cardápio por restaurante         |
+| `ReservationRepository`| Criação de reservas via API                               |
+| `UserRepository`       | Login, cadastro, logout e persistência local do usuário   |
 
 ## Equipe
 
