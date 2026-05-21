@@ -66,7 +66,10 @@ fun OpenStreetMapComponent(
     AndroidView(
         factory = { mapView },
         update = { map ->
+            val point = GeoPoint(latitude, longitude)
+            map.controller.setCenter(point)
             map.overlays.filterIsInstance<Marker>().firstOrNull()?.let {
+                it.position = point
                 it.title = title
                 map.invalidate()
             }
