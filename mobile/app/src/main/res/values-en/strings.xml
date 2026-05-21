@@ -87,6 +87,8 @@
     <string name="select_placeholder">Select</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
+    <string name="error_unknown">Unknown error</string>
+    <string name="error_location_unavailable">Location unavailable</string>
 
 
     <!-- Accessibility -->
@@ -133,4 +135,9 @@
     <string name="home_suggested_title">Suggested</string>
     <string name="home_latest_title">Latest restaurants</string>
     <string name="home_error_loading">Error loading stores:\n%s</string>
+    <string name="home_location_undefined">Location undefined</string>
+    <string name="home_location_unavailable">Location unavailable</string>
+    <string name="home_location_not_found">Address not found</string>
+    <string name="home_location_error">Error getting address</string>
+    <string name="home_location_unknown">Unknown address</string>
 </resources>

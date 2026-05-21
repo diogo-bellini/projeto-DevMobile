@@ -87,6 +87,8 @@
     <string name="select_placeholder">Selecione</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancelar</string>
+    <string name="error_unknown">Erro desconhecido</string>
+    <string name="error_location_unavailable">Localização não disponível</string>
 
     <!-- Accessibility -->
     <string name="cd_back_button">Voltar</string>
@@ -132,4 +134,9 @@
     <string name="home_suggested_title">Sugeridos</string>
     <string name="home_latest_title">Últimos restaurantes</string>
     <string name="home_error_loading">Erro ao carregar lojas:\n%s</string>
+    <string name="home_location_undefined">Localização não definida</string>
+    <string name="home_location_unavailable">Localização não disponível</string>
+    <string name="home_location_not_found">Endereço não encontrado</string>
+    <string name="home_location_error">Erro ao obter endereço</string>
+    <string name="home_location_unknown">Endereço desconhecido</string>
 </resources>
